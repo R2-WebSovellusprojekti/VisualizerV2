@@ -1,0 +1,624 @@
+/*Sign out button*/
+.signout-btn {
+  font-family: 'Saira', sans-serif;
+  background-color: #8d8d8d; 
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: visible;
+  white-space: nowrap;
+  max-width: 100%;
+  margin: 0 auto;
+  text-shadow: 0 0 5px #000000;
+}
+.signout-btn:hover {
+  background-color: #b3b3b3;
+}
+
+
+/*Profile button*/
+.dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.profile-btn {
+  z-index: 1;
+  font-family: 'Saira', sans-serif;
+  background-color: #00e1ff; 
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+  position: relative;
+  overflow: visible;
+  white-space: nowrap;
+  max-width: 100%;
+  margin: 0 auto;
+  text-shadow: 0 0 5px #000000;
+}
+.profile-btn:hover {
+  background-color: #00ccff;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: border-radius 0.3s ease;
+  
+}
+.profile-btn img {
+  margin-top: 0%;
+  margin-left: 0%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+/*Profile button dropdown*/
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: calc(-20% - 0.6rem);
+  background-color: rgb(226, 226, 226);
+  border: 1px solid #000000;
+  padding: 0.7rem;
+  z-index: 1;
+  border-radius: 4px;
+}
+.profile-dropdown * {
+  margin-bottom: -0.5rem;
+  box-sizing: border-box;
+}
+.profile-dropdown button{
+  margin-bottom: 1rem;
+}
+.profile-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+  /* Add triangle */
+  .profile-dropdown:before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 45%;
+    border-top: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(226, 226, 226);
+    border-left: 10px solid transparent;
+  }
+
+
+/*DELETE ACCOUNT button*/  
+.deleteuser-btn {
+    font-family: 'Saira', sans-serif;
+    background-color: #ff0000; 
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: visible;
+    white-space: nowrap;
+    max-width: 100%;
+    margin: 0 auto;
+    text-shadow: 0 0 5px #000000;
+  }
+  .deleteuser-btn:hover {
+    background-color: darkred;
+  }
+  
+  .confirm-dialog {
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .confirm-dialog-content {
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
+    text-align: center;
+  }
+  .confirm-dialog-input {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;  
+    flex-direction: column;
+    display: flex;
+  }
+  .confirm-dialog-input label {
+    font-family: 'Saira', sans-serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .confirm-dialog-input input {
+    font-family: 'Saira', sans-serif;
+    font-size: 20px;
+    text-align: center;
+  }
+  .confirm-dialog h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .confirm-dialog p {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .confirm-dialog-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .confirm-dialog-confirm {
+    font-family: 'Saira', sans-serif;
+    background-color: red;
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    text-shadow: 0 0 5px #000000;
+  }
+  .confirm-dialog-confirm:hover {
+    background-color: rgb(184, 0, 0);
+  }
+  
+  .confirm-dialog-cancel {
+    font-family: 'Saira', sans-serif;
+    background-color: #ccc;
+    color: black;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-shadow: 0 0 2px #000000;
+  }
+  .confirm-dialog-cancel:hover {
+    background-color: rgb(184, 184, 184);
+  }
+  
+  .deleteuser-btn:hover {
+    background-color: #d10000;
+  }
+
+
+  /*LOG IN button*/
+  .signin-btn {
+    font-family: 'Saira', sans-serif;
+    background-color: #4CAF50;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 1rem 0;
+    text-shadow: 0 0 5px #000000;
+  }
+  
+  .signin-btn:hover {
+    background-color: #3e8e41;
+  }
+  .signin-container {
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  /*SIGN UP button*/
+  .signup-btn {
+      font-family: 'Saira', sans-serif;
+      background-color: #0099ff;
+      border: none;
+      color: white;
+      padding: 5px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+      white-space: nowrap;
+      text-shadow: 0 0 5px #000000;
+    }
+  .signup-btn:hover {
+    background-color: #007fd4;
+  }
+  .signup-container {
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+
+/* Dropdown menu for LOG IN button */
+.signin-dropdown {
+  position: absolute;
+  top: 4rem;
+  right: -170%;
+  background-color: rgb(226, 226, 226);
+  border: 1px solid #000000;
+  padding: 16px;
+  z-index: 1;
+  border-radius: 4px;
+}
+  /* Add triangle */
+.signin-dropdown:before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  right: 43%;
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(226, 226, 226);
+  border-left: 10px solid transparent;
+}
+  
+  /*SIGN IN button in the dropdown menu*/
+  .dropdown-btn {
+    font-family: 'Saira', sans-serif;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: #000 !important;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  }
+
+  .dropdown-btn:hover {
+    
+    border-radius: 45px;
+    background-color: #51ce55;
+    color: #ffffff !important;
+    border-color: #afafaf  !important;
+  }
+  .dropdown-btn:disabled {
+    border-radius: 4px;
+    background-color: #afafaf;
+    color: #ffffff !important;
+    border-color: #afafaf  !important;
+  }
+  
+  /*Dropdown menu for SIGN UP button*/
+  .signup-dropdown {
+    position: absolute;
+    top: 3rem;
+    right: -150%;
+    background-color: rgb(226, 226, 226);
+    border: 1px solid #000000;
+    padding: 16px;
+    z-index: 1;
+    border-radius: 4px;
+  }
+  .signupdropdown-btn {
+    font-family: 'Saira', sans-serif;
+    background-color: #0099ff;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    position: absolute;
+  }
+    .signupdropdown-btn:hover {
+        border-radius: 45px;
+        background-color: #007fd4;
+        color: #ffffff !important;
+        border-color: #afafaf  !important;
+  }
+  /* Add triangle */
+.signup-dropdown:before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  right: 45%;
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(226, 226, 226);
+  border-left: 10px solid transparent;
+}
+
+  /*SIGN IN button in the dropdown menu*/
+  /*For signin and signup*/
+  .dropdown-btn {
+    font-family: 'Saira', sans-serif;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: #000 !important;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  }
+
+  .dropdown-btn:hover {
+    
+    border-radius: 45px;
+    background-color: #00b91f;
+    color: #ffffff !important;
+    border-color: #afafaf  !important;
+  }
+  .dropdown-btn:disabled {
+    border-radius: 4px;
+    background-color: #afafaf;
+    color: #ffffff !important;
+    border-color: #afafaf  !important;
+  }
+
+/*For signup mostly*/
+  .dropdown-btn2 {
+    font-family: 'Saira', sans-serif;
+    background-color: #00b7ff;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: #000 !important;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  }
+  .dropdown-btn2:hover {
+    
+    border-radius: 45px;
+    background-color: #008ecf;
+    color: #ffffff !important;
+    border-color: #afafaf  !important;
+  }
+  
+  /*SIGN IN button in the dropdown menu*/
+  .dropdown-btn {
+    font-family: 'Saira', sans-serif;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: #000 !important;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  }
+
+  .dropdown-btn:hover {
+    
+    border-radius: 45px;
+    background-color: #00b91f;
+    color: #ffffff !important;
+    border-color: #afafaf  !important;
+  }
+  .dropdown-btn:disabled {
+    border-radius: 4px;
+    background-color: #afafaf;
+    color: #ffffff !important;
+    border-color: #afafaf  !important;
+  }
+
+  .dropdown-txt {
+    font-family: 'Saira', sans-serif;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+  }
+  /*Dropdown menu boxes for Username and Password*/
+  input[type="text"],
+  input[type="password"]{
+    border-radius: 25px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    box-shadow: 0px 0px 5px 1px rgba(0, 255, 13, 0.75);
+  outline:1px solid rgba(0, 255, 13, 0.75);
+  }
+  
+  .signupform {
+    font-family: 'Saira', sans-serif;
+  }
+
+  /* Media query for screens smaller than 950px */
+  @media (max-width: 950px) {
+    .deleteuser-btn {
+      font-family: 'Saira', sans-serif;
+      background-color: #ff0000; 
+      border: none;
+      color: white;
+      padding: 5px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+      overflow: visible;
+      max-width: 100%;
+      margin: 0 auto;
+    } 
+  /*Dropdown menu for SIGN UP button*/
+  .signup-dropdown {
+    position: absolute;
+    top: 3rem;
+    right: -50%;
+    background-color: rgb(226, 226, 226);
+    border: 1px solid #000000;
+    padding: 16px;
+    z-index: 1;
+    border-radius: 4px;
+  }
+  .signupdropdown-btn {
+    font-family: 'Saira', sans-serif;
+    background-color: #0099ff;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    position: absolute;
+  }
+    .signupdropdown-btn:hover {
+        border-radius: 45px;
+        background-color: #007fd4;
+        color: #ffffff !important;
+        border-color: #afafaf  !important;
+  }
+  /* Add triangle */
+.signup-dropdown:before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  right: 23%;
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(226, 226, 226);
+  border-left: 10px solid transparent;
+}
+
+/* Dropdown menu for LOG IN button */
+.signin-dropdown {
+  position: absolute;
+  top: 4rem;
+  right: -230%;
+  background-color: rgb(226, 226, 226);
+  border: 1px solid #000000;
+  padding: 16px;
+  z-index: 1;
+  border-radius: 4px;
+}
+  /* Add triangle */
+.signin-dropdown:before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  right: 67%;
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(226, 226, 226);
+  border-left: 10px solid transparent;
+}
+  /*LOG IN button*/
+  .signin-btn {
+    font-family: 'Saira', sans-serif;
+    background-color: #4CAF50;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 1rem 0;
+    right: 50%;
+  }
+    /*SIGN UP button*/
+    .signup-btn {
+
+      font-family: 'Saira', sans-serif;
+      background-color: #0099ff;
+      border: none;
+      color: white;
+      padding: 5px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+      white-space: nowrap;
+      right: 20%;
+    }
+    .signup-container {
+      position: relative;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+    .signin-container {
+      position: relative;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+}

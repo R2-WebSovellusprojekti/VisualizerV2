@@ -1,0 +1,151 @@
+
+.App {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.App-logo {
+  max-width: 13%;
+  pointer-events: none;
+  padding: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 11s linear;
+  }
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 0px;
+  margin-left: 1%;
+}
+.title {
+  font-family: 'Saira', sans-serif;
+  font-size: 50px;
+  color: #f8f8f8;
+  padding: 10px;
+  margin-left: 10px;
+  text-decoration: none !important;
+  overflow: visible;
+  white-space: nowrap;
+
+}
+
+.App-header {
+  height: 100vh;
+  width: 100vw;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #ffffff;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+/* Nav bar on top of the page */
+.navbar {
+  font-family: 'Saira', sans-serif;
+  width: auto;
+  max-height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #414141;
+  color: white;
+  padding: 0.5rem 2rem;
+}
+/* Anchors inside the nav bar */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  align-items: center;
+  max-height: 10%;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 5%;
+  margin-top: 1%;
+}
+
+.navbar li {
+  padding: 0rem 1rem;
+  text-align: center;
+}
+/* Anchors inside the nav bar */
+.navbar li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1px;
+}
+/* Media query for screens smaller than 950px */
+@media (max-width: 950px) {
+  .navbar {
+  max-height: 8rem;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  .navbar ul {
+  flex-direction: row;
+  margin: 0;
+  }
+  
+  .navbar li {
+  padding: 0px 0;
+  display: inline-block;
+  align-items: flex-start;
+  }
+  
+  .navbar li:last-child {
+  margin-right: 0px;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+  align-items: flex-start;
+  }
+  
+  .navbar li:not(:last-child) {
+  margin-right: 20px;
+  }
+  
+  .App-logo {
+  max-width: 20%;
+  }
+  
+  .title {
+  font-size: 18px;
+  margin-left: 0px;
+  }
+  
+  .App-header {
+  font-size: calc(10px + 1vmin);
+  }
+  }
+

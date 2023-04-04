@@ -1,0 +1,132 @@
+-- Database: r2db
+
+-- DROP DATABASE IF EXISTS r2db;
+
+CREATE DATABASE r2db
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_Finland.1252'
+    LC_CTYPE = 'English_Finland.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+-- SCHEMA: public
+
+-- DROP SCHEMA IF EXISTS public ;
+
+CREATE SCHEMA IF NOT EXISTS public
+    AUTHORIZATION pg_database_owner;
+
+COMMENT ON SCHEMA public
+    IS 'standard public schema';
+
+GRANT USAGE ON SCHEMA public TO PUBLIC;
+
+GRANT ALL ON SCHEMA public TO pg_database_owner;
+
+-- Table: public.users
+
+-- DROP TABLE IF EXISTS public.users;
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+    id integer NOT NULL DEFAULT 'nextval('users_id_seq'::regclass)',
+    username character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT users_pkey PRIMARY KEY (id),
+    CONSTRAINT users_username_key UNIQUE (username)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.users
+    OWNER to postgres;
+
+-- Column: public.users.id
+
+-- ALTER TABLE IF EXISTS public.users DROP COLUMN IF EXISTS id;
+
+ALTER TABLE IF EXISTS public.users
+    ADD COLUMN id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass);
+
+-- Column: public.users.username
+
+-- ALTER TABLE IF EXISTS public.users DROP COLUMN IF EXISTS username;
+
+ALTER TABLE IF EXISTS public.users
+    ADD COLUMN username character varying(50) COLLATE pg_catalog."default" NOT NULL;
+
+-- Column: public.users.password
+
+-- ALTER TABLE IF EXISTS public.users DROP COLUMN IF EXISTS password;
+
+ALTER TABLE IF EXISTS public.users
+    ADD COLUMN password character varying(255) COLLATE pg_catalog."default" NOT NULL;
+
+-- PROCEDURE: public.check_password(character varying, character varying)
+
+-- DROP PROCEDURE IF EXISTS public.check_password(character varying, character varying);
+
+CREATE OR REPLACE PROCEDURE public.check_password(
+	IN username character varying,
+	IN password character varying,
+	OUT match boolean)
+LANGUAGE 'plpgsql'
+AS $BODY$
+BEGIN
+    -- Initialize the match variable to false
+    match := false;
+
+    -- Check if the provided username and password match a user in the database
+    IF EXISTS (
+        SELECT 1
+        FROM users
+        WHERE users.username = check_password.username AND users.password = check_password.password
+    ) THEN
+        -- If the user exists and the password is correct, set match to true
+        match := true;
+    END IF;
+    
+    -- This procedure can be used to check if the provided password matches the
+    -- password associated with a given username in the database. It can be useful
+    -- when a user is attempting to delete itself, to ensure that the correct
+    -- password is provided before allowing the user to be deleted.
+END;
+$BODY$;
+ALTER PROCEDURE public.check_password(character varying, character varying)
+    OWNER TO postgres;
+
+-- PROCEDURE: public.create_user(character varying, character varying)
+
+-- DROP PROCEDURE IF EXISTS public.create_user(character varying, character varying);
+
+CREATE OR REPLACE PROCEDURE public.create_user(
+	IN username character varying,
+	IN password character varying)
+LANGUAGE 'plpgsql'
+AS $BODY$
+BEGIN
+    INSERT INTO users (username, password)
+    VALUES (username, password);
+END;
+$BODY$;
+ALTER PROCEDURE public.create_user(character varying, character varying)
+    OWNER TO postgres;
+
+-- PROCEDURE: public.delete_user(character varying)
+
+-- DROP PROCEDURE IF EXISTS public.delete_user(character varying);
+
+CREATE OR REPLACE PROCEDURE public.delete_user(
+	IN username character varying)
+LANGUAGE 'plpgsql'
+AS $BODY$
+BEGIN
+    DELETE FROM users
+    WHERE users.username = delete_user.username;
+END;
+$BODY$;
+ALTER PROCEDURE public.delete_user(character varying)
+    OWNER TO postgres;
