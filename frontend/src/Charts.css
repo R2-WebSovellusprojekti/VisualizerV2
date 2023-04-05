@@ -1,18 +1,64 @@
 .n1chart-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .n1chart-container canvas {
-    width: 300px;
-    height: 200px;
+    justify-content: center;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    flex-wrap: nowrap;
+}
+.n2chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    flex-wrap: nowrap;
+}
+.n3chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    flex-wrap: nowrap;
+}
+.chart-column {
     margin-bottom: 20px;
-  }
-  .chart-column {
-    display: inline-block;
-    width: 33.33%;
-    padding: 10px;
-    box-sizing: border-box;
-  }
+    flex-direction: row;
+    border: #000000 solid 1px;
+    border-radius: 5px;
+    margin: 1rem;
+    
+}
+.chart-box {
+
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    max-width: 95vw;
+    box-shadow: 0px 0px 3px rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+}
+  
+.chart-box .line-graph {
+    flex: 1; /* this will make each line graph take up equal space in the box */
+    margin: 10px;
+}
+canvas {
+    font-family: 'Saira', 'sans-serif';
+    overflow: scroll;
+    width: 600px !important;
+    height: auto !important;
+}
