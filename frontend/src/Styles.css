@@ -36,7 +36,7 @@
 .profile-btn {
   z-index: 1;
   font-family: 'Saira', sans-serif;
-  background-color: #00e1ff; 
+  background-color: #252525; 
   border: none;
   color: rgb(255, 255, 255);
   padding: 5px 15px;
@@ -54,9 +54,10 @@
   max-width: 100%;
   margin: 0 auto;
   text-shadow: 0 0 5px #000000;
+  box-shadow: #007fd4 0px 0px 5px;
 }
 .profile-btn:hover {
-  background-color: #00ccff;
+  background-color: #252525;
   cursor: pointer;
   border-radius: 16px;
   transition: border-radius 0.3s ease;
@@ -74,7 +75,7 @@
   position: absolute;
   top: calc(100% + 0.6rem);
   right: calc(-20% - 0.6rem);
-  background-color: rgb(226, 226, 226);
+  background-color: #252525;
   border: 1px solid #000000;
   padding: 0.7rem;
   z-index: 1;
@@ -100,7 +101,7 @@
     right: 45%;
     border-top: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid rgb(226, 226, 226);
+    border-bottom: 10px solid #000000;
     border-left: 10px solid transparent;
   }
 
@@ -225,7 +226,7 @@
   /*LOG IN button*/
   .signin-btn {
     font-family: 'Saira', sans-serif;
-    background-color: #4CAF50;
+    background-color: #252525;
     border: none;
     color: rgb(255, 255, 255);
     padding: 5px 15px;
@@ -241,6 +242,7 @@
     white-space: nowrap;
     margin: 1rem 0;
     text-shadow: 0 0 5px #000000;
+    box-shadow: #00ff2a 0px 0px 5px;
   }
   
   .signin-btn:hover {
@@ -254,7 +256,7 @@
   /*SIGN UP button*/
   .signup-btn {
       font-family: 'Saira', sans-serif;
-      background-color: #0099ff;
+      background-color: #252525;
       border: none;
       color: white;
       padding: 5px 15px;
@@ -268,6 +270,7 @@
       position: relative;
       white-space: nowrap;
       text-shadow: 0 0 5px #000000;
+      box-shadow: #00e1ff 0px 0px 5px;
     }
   .signup-btn:hover {
     background-color: #007fd4;
@@ -284,11 +287,12 @@
   position: absolute;
   top: 4rem;
   right: -170%;
-  background-color: rgb(226, 226, 226);
+  background-color: #252525;
   border: 1px solid #000000;
   padding: 16px;
   z-index: 1;
   border-radius: 4px;
+  box-shadow: 0 0 5px #00ff22;
 }
   /* Add triangle */
 .signin-dropdown:before {
@@ -298,7 +302,7 @@
   right: 43%;
   border-top: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid rgb(226, 226, 226);
+  border-bottom: 10px solid #000000;
   border-left: 10px solid transparent;
 }
   
@@ -336,12 +340,13 @@
   .signup-dropdown {
     position: absolute;
     top: 3rem;
-    right: -150%;
-    background-color: rgb(226, 226, 226);
+    right: -130%;
+    background-color: #252525;
     border: 1px solid #000000;
     padding: 16px;
     z-index: 1;
     border-radius: 4px;
+    box-shadow: #00e1ff 0px 0px 5px;
   }
   .signupdropdown-btn {
     font-family: 'Saira', sans-serif;
@@ -369,10 +374,10 @@
   content: '';
   position: absolute;
   bottom: 100%;
-  right: 45%;
+  right: 40%;
   border-top: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid rgb(226, 226, 226);
+  border-bottom: 10px solid #000000;
   border-left: 10px solid transparent;
 }
 
@@ -410,7 +415,7 @@
 /*For signup mostly*/
   .dropdown-btn2 {
     font-family: 'Saira', sans-serif;
-    background-color: #00b7ff;
+    background-color: #fdfdfd;
     border: 1px solid #000000;
     border-radius: 4px;
     color: #000 !important;
@@ -424,7 +429,7 @@
   }
   .dropdown-btn2:hover {
     
-    border-radius: 45px;
+    border-radius: 15px;
     background-color: #008ecf;
     color: #ffffff !important;
     border-color: #afafaf  !important;
@@ -448,7 +453,7 @@
 
   .dropdown-btn:hover {
     
-    border-radius: 45px;
+    border-radius: 15px;
     background-color: #00b91f;
     color: #ffffff !important;
     border-color: #afafaf  !important;
@@ -461,6 +466,15 @@
   }
 
   .dropdown-txt {
+    font-family: 'Saira', sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .dropdown-txt2 {
     font-family: 'Saira', sans-serif;
     color: #000000;
     font-size: 18px;

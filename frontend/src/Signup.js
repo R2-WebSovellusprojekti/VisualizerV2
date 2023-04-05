@@ -7,13 +7,16 @@ function SignupForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false); // Add a state to keep track of whether the form is submitting
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
 
   function handleUsernameChange(event) {
     setUsername(event.target.value);
     setUsernameError('');
     setSuccessMessage('');
+  }
+  function handleFocus() {
+    setUsernameError('');
   }
 
   function handlePasswordChange(event) {
@@ -24,16 +27,18 @@ function SignupForm() {
     event.preventDefault();
 
     if (!username.trim()) {
-      alert('Username cannot be empty!');
+      setUsernameError('Username cannot be empty!');
+      setPassword('');
       return;
     }
 
     if (password.length < 8) {
-      alert('Password must be at least 8 characters long!');
+      setUsernameError('Password must be at least 8 characters long!');
+      setPassword('');
       return;
     }
 
-    setIsSubmitting(true); // Set the form to submitting state
+    setIsSubmitting(true);
 
     bcrypt.genSalt(10, function(err, salt) {
       bcrypt.hash(password, salt, function(err, hash) {
@@ -48,16 +53,15 @@ function SignupForm() {
         })
           .then(response => {
             if (response.ok) {
-              setIsSubmitting(false); // Set the form to non-submitting state
-              setSuccessMessage('User added successfully!'); // Set the success message
-              setUsername(''); // Reset the form fields
+              setIsSubmitting(false);
+              setSuccessMessage('User added successfully!');
+              setUsername('');
               setPassword('');
-              //Redirect to front page
               window.location.href = '/';
             } else if (response.status === 409) {
               setUsernameError('Username is already taken');
-              setIsSubmitting(false); // Set the form to non-submitting state
-              setUsername(''); // Reset the form fields
+              setIsSubmitting(false);
+              setUsername('');
               setPassword('');
               throw new Error('Username is already taken');
             } else {
@@ -66,7 +70,7 @@ function SignupForm() {
           })
           .catch((error) => {
             console.error('Error:', error);
-            setIsSubmitting(false); // Set the form to non-submitting state
+            setIsSubmitting(false);
           });
       });
     });
@@ -74,24 +78,23 @@ function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style ={{ display: 'flex', flexDirection: 'column' }}>
-      <label className='dropdown-txt'>
-        Choose your username
-        <input type="text" className='dropdown-txt' value={username} onChange={handleUsernameChange} />
-{/*        {usernameError && <span style={{ color: 'red' }}>{usernameError}</span>}         */}
-      </label>
-      <label className='dropdown-txt'>
-        Choose your password
-        <input type="password" className='dropdown-txt' value={password} onChange={handlePasswordChange} />
-      </label>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <label className='dropdown-txt'>
+          Choose your username
+          <input type="text" className='dropdown-txt2' value={username} onChange={handleUsernameChange} onFocus={handleFocus}/>
+        </label>
+        <label className='dropdown-txt'>
+          Choose your password
+          <input type="password" className='dropdown-txt2' value={password} onChange={handlePasswordChange} onFocus={handleFocus}/>
+        </label>
+        {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>} {/* Display the password error message */}
+        {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Display the success message */}
       </div>
       {isSubmitting ? (
         <button type="submit" className='dropdown-btn' disabled>SUBMITTING...</button>
       ) : (
         <button type="submit" className='dropdown-btn2'>SIGN UP</button>
       )}
-      {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>} {/* Display the username error message */}
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Display the success message */}
     </form>
   );
 }
