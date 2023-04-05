@@ -3,20 +3,28 @@ body {
   margin: 0;
   align-items: center;
   overflow: auto;
+  padding-top: 0px;
 }
 
 .App {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100;
   width: 100%;
 }
-
+.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #252525;
+  color: #fff;
+  height: 4rem;
+}
 .App-logo {
   max-width: 12%;
   pointer-events: none;
-  padding: auto;
+  margin-right: 1rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -29,19 +37,26 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  margin-top: 0px;
-  margin-left: 2rem;
+  max-height: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: 1.5rem;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .title {
   font-family: 'Saira', sans-serif;
   font-size: 50px;
   color: #f8f8f8;
-  padding: 10px;
-  margin-left: 10px;
   text-decoration: none !important;
   overflow: visible;
   white-space: nowrap;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
 
 }
 
@@ -84,7 +99,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #414141;
+  background-color: #252525;
   color: white;
   padding: 0.5rem 2rem;
 }
@@ -119,11 +134,11 @@ ul {
 .github-logo {
   width: 50px;
   height: 50px;
-  margin-left: 1rem;
   cursor: pointer;
   transition: ease-in-out 0.2s;
   position: relative;
-  left: 3rem;
+  border-radius: 50px;
+  box-shadow: #f8f8f8 0px 0px 10px 0px;
 }
 .github-logo:hover {
   transform: scale(1.1);
@@ -166,7 +181,7 @@ ul {
   }
   
   .title {
-  font-size: 18px;
+  font-size: 25px;
   max-height: fit-content;
   }
   
@@ -184,7 +199,6 @@ ul {
     cursor: pointer;
     transition: ease-in-out 0.2s;
     position: relative;
-    left: 3rem;
   }
   }
 
