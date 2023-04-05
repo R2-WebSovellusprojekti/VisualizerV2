@@ -45,13 +45,13 @@ const N1Charts = () => {
 
   return (
     <div className="n1chart-container">
-  <div className="chart-column">
+  <div className="chart-row">
     <Line data={data1} />
   </div>
-  <div className="chart-column">
+  <div className="chart-row">
     <Line data={data2} />
   </div>
-  <div className="chart-column">
+  <div className="chart-row">
     <Line data={data3} />
   </div>
 </div>

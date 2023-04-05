@@ -19,7 +19,7 @@ const N3Charts = () => {
 
   return (
     <div className="n3chart-container">
-  <div className="chart-column">
+  <div className="chart-row">
     <Line data={data1} />
   </div>
 </div>
