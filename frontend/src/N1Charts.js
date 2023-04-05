@@ -8,7 +8,7 @@ const N1Charts = () => {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'Visualization 1',
         data: [12, 19, 3, 5, 2, 3, 12],
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
@@ -21,7 +21,7 @@ const N1Charts = () => {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
       {
-        label: 'Dataset 2',
+        label: 'Visualization 2',
         data: [5, 6, 7, 8, 9, 10, 11],
         borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 1,
@@ -34,7 +34,7 @@ const N1Charts = () => {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
       {
-        label: 'Dataset 3',
+        label: 'Visualization 3',
         data: [8, 5, 2, 6, 12, 15, 10],
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
