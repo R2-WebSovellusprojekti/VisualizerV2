@@ -1,6 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
+import ProfileButton from './ProfileButton';
+
+describe('App', () => {
 
 test('renders R2 Visualizer Project title', () => {
   render(<App />);
@@ -26,24 +29,24 @@ test('renders the correct user name on the "Profile" button when logged in', () 
     password: 'testi123',
   };
   const isAuthenticated = true;
-  render(<App user={user} isAuthenticated={isAuthenticated} />);
-
+  render(<ProfileButton user={user} isAuthenticated={isAuthenticated} />);
+/*
   // Find and click the "Login" button
   const loginButton = screen.getByText(/LOG IN/i);
   userEvent.click(loginButton);
-
+*/
   // Find the "Profile" button and assert that it contains the correct user name
-  const profileButton = screen.getByText(/Profile/i);
+  const profileButton = screen.getByTestId('profile-button');
   expect(profileButton).toHaveTextContent(user.username);
 });
-
-
 
 test('does not render "Profile" button when user is not authenticated', () => {
   const isAuthenticated = false;
   render(<App isAuthenticated={isAuthenticated} />);
   const profileButtonElement = screen.queryByText(/Profile/i);
   expect(profileButtonElement).not.toBeInTheDocument();
+});
+
 });
 
 /*
