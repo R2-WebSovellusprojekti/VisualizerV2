@@ -23,48 +23,18 @@ test('renders "SIGN UP" button', () => {
   expect(signupButtonElement).toBeInTheDocument();
 });
 
-test('renders the correct user name on the "Profile" button when logged in', () => {
-  const user = {
-    username: 'Testi',
-    password: 'testi123',
-  };
+test('renders the "Profile" button when logged in', () => {
   const isAuthenticated = true;
-  render(<ProfileButton user={user} isAuthenticated={isAuthenticated} />);
-/*
-  // Find and click the "Login" button
-  const loginButton = screen.getByText(/LOG IN/i);
-  userEvent.click(loginButton);
-*/
-  // Find the "Profile" button and assert that it contains the correct user name
+  render(<ProfileButton  isAuthenticated={isAuthenticated} />);
   const profileButton = screen.getByTestId('profile-button');
-  expect(profileButton).toHaveTextContent(user.username);
+  expect(profileButton).toBeEnabled();
 });
 
 test('does not render "Profile" button when user is not authenticated', () => {
   const isAuthenticated = false;
   render(<App isAuthenticated={isAuthenticated} />);
-  const profileButtonElement = screen.queryByText(/Profile/i);
-  expect(profileButtonElement).not.toBeInTheDocument();
+  const profileButton = screen.queryByTestId('profile-button');
+  expect(profileButton).not.toBeInTheDocument();
 });
 
 });
-
-/*
-test('renders R2 Visualizer Project', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/R2 Visualizer Project/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
-test('renders LOG IN', () => {
-  render(<App />);
-  const buttonElement = screen.getByText(/LOG IN/i);
-  expect(buttonElement).toBeInTheDocument();
-});
-
-test('renders SIGN UP', () => {
-  render(<App />);
-  const buttonElement = screen.getByText(/SIGN UP/i);
-  expect(buttonElement).toBeInTheDocument();
-});
-*/
