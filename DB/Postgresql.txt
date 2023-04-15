@@ -1,0 +1,45 @@
+V1 annual
+Lämpötilapoikkeamat
+Moberg on 2000 vuoden rekonstruktio
+CREATE TABLE HC_Annual (
+    Year_ INTEGER PRIMARY KEY,
+    Moberg FLOAT,
+    Global_ FLOAT,
+    Northern FLOAT,
+    Southern FLOAT
+);
+
+COPY hc_annual (Year_, Moberg, Global_, Northern, Southern) FROM 'C:\Users\Hannu\HadCRUT.annual.csv' WITH (FORMAT csv, HEADER true);
+
+V1 monthly
+
+CREATE TABLE HC_Monthly (
+    Year_ INTEGER,
+    Month_ INTEGER,
+    Global_ FLOAT,
+    Northern FLOAT,
+    Southern FLOAT,
+    PRIMARY KEY (Year_, Month_)
+);
+
+COPY HC_Monthly (Year_, Month_, Global_, Northern, Southern)
+FROM 'C:\Users\Hannu\HadCRUTmonthly.csv'
+DELIMITER ',' CSV HEADER;
+
+V3
+Kyr = kilo years
+Temp = lämpötila 2 miljoonan vuoden ajalta
+C02 = hiilidioksidipitoisuus 800 000 vuoden ajalta
+
+
+CREATE TABLE V3 (
+    Kyr INTEGER PRIMARY KEY,
+    Temp FLOAT,
+    CO2 FLOAT
+);
+
+
+COPY V3 (Kyr, Temp, CO2)
+FROM 'C:\Users\Hannu\V3.csv'
+
+V4
