@@ -43,3 +43,16 @@ COPY V3 (Kyr, Temp, CO2)
 FROM 'C:\Users\Hannu\V3.csv'
 
 V4
+
+
+V5
+
+
+CREATE TABLE V5
+(
+  id SERIAL PRIMARY KEY,
+  sector VARCHAR(255),
+  sub_sector VARCHAR(255),
+  sub_sector_det VARCHAR(255),
+  share DOUBLE PRECISION
+);
