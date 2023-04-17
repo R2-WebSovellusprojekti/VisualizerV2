@@ -4,13 +4,21 @@ function DeleteUserForm() {
   const [username, setUsername] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [isPromptOpen, setIsPromptOpen] = useState(false);
+  const [usernameError] = useState('');
+  const [isAuthError] = useState(false);
+  const [authErrorMessage] = useState('');
   const SERVER_ADDRESS = 'http://localhost:5000/api/deleteuser';
   const token = localStorage.getItem('token');
   const dialogRef = useRef(null);
 
   function handleUsernameChange(event) {
     setUsername(event.target.value);
+  }
+
+  function handleUsernameFocus() {
+    setErrorMessage('');
   }
 
   function handleSubmit(event) {
@@ -22,18 +30,23 @@ function DeleteUserForm() {
     }
 
     if (!username.trim()) {
-        alert('Username cannot be empty!');
-        return;
-      }
+      setErrorMessage('Username cannot be empty!');
+      setUsername('');
+      return;
+    } else {
+        setErrorMessage('');
+    }
 
-    if (username !== localStorage.getItem('username')) {
-        alert('You can only delete your own account!');
-        return;
-        }
+  if (username !== localStorage.getItem('username')) {
+      setErrorMessage('You can only delete your own account!');
+      setUsername('');
+      return;
+    } else {
+        setErrorMessage('');
+    }
 
     setIsSubmitting(true);
 
-    
     const data = { username };
 
     if (token && username) {
@@ -44,7 +57,7 @@ function DeleteUserForm() {
     })
       .then(async response => {
         if (response.ok) {
-            localStorage.clear(); // Clear local storage
+          localStorage.clear(); // Clear local storage
           setIsSubmitting(false);
           setSuccessMessage('User deleted successfully!');
           setUsername('');
@@ -89,8 +102,11 @@ function DeleteUserForm() {
               <p style={{ marginTop: '-1%', marginBottom: '10px', fontSize: '18px' }}>Are you sure you want to delete this account?</p>
               <div className="confirm-dialog-input">
                 <label htmlFor="username">Enter your username to delete</label>
-                  <input type="text" id="username" value={username} onChange={handleUsernameChange} />
+                  <input type="text" id="username" value={username} onChange={handleUsernameChange} onFocus={handleUsernameFocus} />
               </div>
+              {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>}
+              {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+              {isAuthError && <p style={{ color: 'red' }}>{authErrorMessage}</p>}
               <div className="confirm-dialog-buttons" style={{ marginTop: '20px' }}>
                 <button className="confirm-dialog-confirm" type="submit">DELETE</button>
                 <button className="confirm-dialog-cancel" type="button" onClick={() => setIsPromptOpen(false)}>CANCEL</button>
