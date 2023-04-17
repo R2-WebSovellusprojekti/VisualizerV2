@@ -53,4 +53,10 @@ test('does not render "Profile" button when user is not authenticated', () => {
   expect(profileButton).not.toBeInTheDocument();
 });
 
+test('renders github button', () => {
+  render(<App />);
+  const githubButton = screen.getByTestId('github-button');
+  expect(githubButton).toBeInTheDocument();
+});
+
 });
