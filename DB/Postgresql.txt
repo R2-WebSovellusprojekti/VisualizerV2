@@ -1,0 +1,83 @@
+V1 annual
+Lämpötilapoikkeamat
+Moberg on 2000 vuoden rekonstruktio
+CREATE TABLE HC_Annual (
+    Year_ INTEGER PRIMARY KEY,
+    Moberg FLOAT,
+    Global_ FLOAT,
+    Northern FLOAT,
+    Southern FLOAT
+);
+
+COPY hc_annual (Year_, Moberg, Global_, Northern, Southern) FROM 'C:\Java\HadCRUT.annual.csv' 
+DELIMITER ';' CSV HEADER;
+
+V1 monthly
+
+CREATE TABLE HC_Monthly (
+    Year_ INTEGER,
+    Month_ INTEGER,
+    Global_ FLOAT,
+    Northern FLOAT,
+    Southern FLOAT,
+    PRIMARY KEY (Year_, Month_)
+);
+
+COPY HC_Monthly (Year_, Month_, Global_, Northern, Southern)
+FROM 'C:\Java\V1_monthly.csv'
+DELIMITER ';' CSV HEADER;
+
+
+V2
+Vuosi ja kuukausi on kahteen kertaan. Datassa oli desimaldate, jonka jätin primary key tarkoituksessa
+
+CREATE TABLE v2_monthly (
+    Year_ INTEGER,
+    Month_ INTEGER,
+    Desimaldate FLOAT,
+    Avg_co2 FLOAT,
+    PRIMARY KEY (Desimaldate)
+);
+
+COPY v2_monthly (Year_, Month_, desimaldate, avg_co2)
+FROM 'C:\Java\V2_Monthly.csv'
+DELIMITER ';' CSV HEADER;
+
+V3
+Kyr = kilo years
+Temp = lämpötila 2 miljoonan vuoden ajalta
+C02 = hiilidioksidipitoisuus 800 000 vuoden ajalta
+
+
+
+
+
+CREATE TABLE V3 (
+    Kyr INTEGER PRIMARY KEY,
+    Temp FLOAT,
+    CO2 FLOAT
+);
+
+
+COPY V3 (Kyr, Temp, CO2)
+FROM 'C:\Java\V3.csv'
+DELIMITER ';' CSV HEADER;
+
+V4
+
+
+V5
+
+
+CREATE TABLE V5
+(
+  id SERIAL PRIMARY KEY,
+  sector VARCHAR(255),
+  sub_sector VARCHAR(255),
+  sub_sector_det VARCHAR(255),
+  share DOUBLE PRECISION
+);
+
+COPY V5 ( sector, sub_sector, sub_sector_det,share)
+FROM 'C:\Java\V5.csv'
+DELIMITER ';' CSV HEADER;
