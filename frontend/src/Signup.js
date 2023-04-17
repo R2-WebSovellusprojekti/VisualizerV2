@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import bcrypt from 'bcryptjs';
 import './Styles.css';
@@ -16,6 +15,10 @@ function SignupForm() {
     setSuccessMessage('');
   }
 
+  function handleFocus() {
+    setUsernameError('');
+  }
+
   function handlePasswordChange(event) {
     setPassword(event.target.value);
   }
@@ -24,12 +27,14 @@ function SignupForm() {
     event.preventDefault();
 
     if (!username.trim()) {
-      alert('Username cannot be empty!');
+      setUsernameError('Username cannot be empty!');
+      setPassword('');
       return;
     }
 
     if (password.length < 8) {
-      alert('Password must be at least 8 characters long!');
+      setUsernameError('Password must be at least 8 characters long!');
+      setPassword('');
       return;
     }
 
@@ -52,8 +57,7 @@ function SignupForm() {
               setSuccessMessage('User added successfully!'); // Set the success message
               setUsername(''); // Reset the form fields
               setPassword('');
-              //Redirect to front page
-              window.location.href = '/';
+              window.location.href = '/'; //Redirect to front page
             } else if (response.status === 409) {
               setUsernameError('Username is already taken');
               setIsSubmitting(false); // Set the form to non-submitting state
@@ -77,21 +81,22 @@ function SignupForm() {
       <div style ={{ display: 'flex', flexDirection: 'column' }}>
       <label className='dropdown-txt'>
         Choose your username
-        <input type="text" className='dropdown-txt' value={username} onChange={handleUsernameChange} />
+        <input type="text" className='dropdown-txt' value={username} onChange={handleUsernameChange} onFocus={handleFocus}/>
 {/*        {usernameError && <span style={{ color: 'red' }}>{usernameError}</span>}         */}
       </label>
       <label className='dropdown-txt'>
         Choose your password
-        <input type="password" className='dropdown-txt' value={password} onChange={handlePasswordChange} />
+        <input type="password" className='dropdown-txt' value={password} onChange={handlePasswordChange} onFocus={handleFocus}/>
       </label>
+      {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>} {/* Display the username error message */}
+      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Display the success message */}
       </div>
       {isSubmitting ? (
         <button type="submit" className='dropdown-btn' disabled>SUBMITTING...</button>
       ) : (
         <button type="submit" className='dropdown-btn2'>SIGN UP</button>
       )}
-      {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>} {/* Display the username error message */}
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Display the success message */}
+      
     </form>
   );
 }
