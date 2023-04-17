@@ -1,82 +1,85 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import SignupForm from './Signup';
+import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import SignInForm from './Signin';
-import { By, until } from 'selenium-webdriver';
-
-
-//-------------------THIS TEST NEEDS TO BE RAN TWO TIMES TO PASS-------------------//
 
 describe('SignInForm', () => {
-
-  test('displays error message for invalid credentials', async () => {
+  it('should render sign-in form', () => {
     render(<SignInForm />);
-
-    const usernameInput = screen.getByLabelText(/username/i);
-    const passwordInput = screen.getByLabelText(/password/i);
-    const submitButton = screen.getByRole('button', { name: /log in/i });
-
-    const testUsername = 'invaliduser';
-    const testPassword = 'invalidpassword';
-
-    fireEvent.change(usernameInput, { target: { value: testUsername } });
-    fireEvent.change(passwordInput, { target: { value: testPassword } });
-
-    fireEvent.click(submitButton);
-
-    // Wait for the error message to appear
-    const errorMessage = await screen.findByText(/invalid username or password/i);
-    expect(errorMessage).toBeInTheDocument();
-
-    // Ensure local storage was not updated
-    expect(localStorage.getItem('token')).toBeNull();
-    expect(localStorage.getItem('username')).toBeNull();
+    expect(screen.getByLabelText('Username')).toBeInTheDocument();
+    expect(screen.getByLabelText('Password')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'LOG IN' })).toBeInTheDocument();
   });
-});
 
-describe('SignupForm', () => {
-
-  test('creates a new user', async () => {
-    render(<SignupForm />);
-    const usernameInput = screen.getByLabelText(/username/i);
-    const passwordInput = screen.getByLabelText(/password/i);
-    const submitButton = screen.getByRole('button', { name: /sign up/i });
-
-    const testUsername = 'testuser';
-    const testPassword = 'testpassword';
-
-    fireEvent.change(usernameInput, { target: { value: testUsername } });
-    fireEvent.change(passwordInput, { target: { value: testPassword } });
-
-    fireEvent.click(submitButton);
-
-  });
-});
-
-describe('SignInForm', () => {
-
-  test('allows user to sign in', async () => {
+  it('should show error when submitting empty form', async () => {
     render(<SignInForm />);
+    fireEvent.submit(screen.getByRole('button', { name: 'LOG IN' }));
+    const alert = await screen.findByText(/Username cannot be empty!/i);
+    expect(alert).toBeInTheDocument();
+  });
 
-    const usernameInput = screen.getByLabelText(/username/i);
-    const passwordInput = screen.getByLabelText(/password/i);
-    const submitButton = screen.getByRole('button', { name: /log in/i });
+  it('should show error when submitting short password', async () => {
+    render(<SignInForm />);
+    const usernameInput = screen.getByLabelText('Username');
+    const passwordInput = screen.getByLabelText('Password');
+    fireEvent.change(usernameInput, { target: { value: 'testuser' } });
+    fireEvent.change(passwordInput, { target: { value: 'short' } });
+    fireEvent.submit(screen.getByRole('button', { name: 'LOG IN' }));
+    const alert = await screen.findByText(/Password must be at least 8 characters long!/i);
+    expect(alert).toBeInTheDocument();
+  });
 
-    const testUsername = 'testuser';
-    const testPassword = 'testpassword';
+  it('should show success message on successful sign-in', async () => {
+    // mock fetch to return a successful response with token
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ token: 'testtoken' }),
+    });
 
-    fireEvent.change(usernameInput, { target: { value: testUsername } });
-    fireEvent.change(passwordInput, { target: { value: testPassword } });
+    render(<SignInForm />);
+    const usernameInput = screen.getByLabelText('Username');
+    const passwordInput = screen.getByLabelText('Password');
+    fireEvent.change(usernameInput, { target: { value: 'testuser' } });
+    fireEvent.change(passwordInput, { target: { value: 'longenoughpassword' } });
+    fireEvent.submit(screen.getByRole('button', { name: 'LOG IN' }));
 
-    fireEvent.click(submitButton);
-
-    // Wait for the success message to appear
-    const successMessage = await screen.findByText(/signed in successfully/i);
-
+    // wait for success message to appear
+    const successMessage = await screen.findByText(/User signed in successfully!/i);
     expect(successMessage).toBeInTheDocument();
 
-    // Ensure local storage was updated
-    expect(localStorage.getItem('token')).not.toBeNull();
-    expect(localStorage.getItem('username')).toEqual(testUsername);
+    // check local storage for token and username
+    expect(localStorage.getItem('token')).toEqual('testtoken');
+    expect(localStorage.getItem('username')).toEqual('testuser');
+
+    // restore fetch to its original implementation
+    global.fetch.mockRestore();
+  });
+
+  it('should show error on failed sign-in', async () => {
+    localStorage.clear(); // Clear local storage
+    // mock fetch to return an error response
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: false,
+      status: 401,
+      json: () => Promise.resolve({ error: 'Invalid username or password' }),
+    });
+
+    render(<SignInForm />);
+    const usernameInput = screen.getByLabelText('Username');
+    const passwordInput = screen.getByLabelText('Password');
+    fireEvent.change(usernameInput, { target: { value: 'testuser' } });
+    fireEvent.change(passwordInput, { target: { value: 'invalidpassword' } });
+    fireEvent.submit(screen.getByRole('button', { name: 'LOG IN' }));
+
+    // wait for error message to appear
+    const errorMessage = await screen.findByText(/Invalid username or password/i);
+    expect(errorMessage).toBeInTheDocument();
+
+    // check local storage for cleared data
+    expect(localStorage.getItem('token')).toBeNull();
+    expect(localStorage.getItem('username')).toBeNull();
+
+    // restore fetch to its original implementation
+    global.fetch.mockRestore();
+
   });
 });
