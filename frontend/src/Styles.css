@@ -524,7 +524,7 @@
     position: absolute;
     top: 3rem;
     right: -50%;
-    background-color: rgb(226, 226, 226);
+    background-color: #252525;
     border: 1px solid #000000;
     padding: 16px;
     z-index: 1;
@@ -568,7 +568,7 @@
   position: absolute;
   top: 4rem;
   right: -230%;
-  background-color: rgb(226, 226, 226);
+  background-color: #252525;
   border: 1px solid #000000;
   padding: 16px;
   z-index: 1;
@@ -588,7 +588,7 @@
   /*LOG IN button*/
   .signin-btn {
     font-family: 'Saira', sans-serif;
-    background-color: #4CAF50;
+    background-color: #252525;
     border: none;
     color: rgb(255, 255, 255);
     padding: 5px 15px;
@@ -609,7 +609,7 @@
     .signup-btn {
 
       font-family: 'Saira', sans-serif;
-      background-color: #0099ff;
+      background-color: #252525;
       border: none;
       color: white;
       padding: 5px 15px;
