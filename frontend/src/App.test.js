@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
 import ProfileButton from './ProfileButton';
+import SignOutButton from './SignOutButton';
+import DeleteUser from './DeleteUser';
 
 describe('App', () => {
 
@@ -25,9 +27,23 @@ test('renders "SIGN UP" button', () => {
 
 test('renders the "Profile" button when logged in', () => {
   const isAuthenticated = true;
-  render(<ProfileButton  isAuthenticated={isAuthenticated} />);
+  render(<ProfileButton isAuthenticated={isAuthenticated} />);
   const profileButton = screen.getByTestId('profile-button');
   expect(profileButton).toBeEnabled();
+});
+
+test('renders the SIGN OUT button when logged in', () => {
+  const isAuthenticated = true;
+  render(<SignOutButton isAuthenticated={isAuthenticated} />);
+  const signoutButton = screen.getByTestId('signout-button');
+  expect(signoutButton).toBeEnabled();
+});
+
+test('renders the DELETE ACCOUNT button when logged in', () => {
+  const isAuthenticated = true;
+  render(<DeleteUser isAuthenticated={isAuthenticated} />);
+  const deleteuserButton = screen.getByTestId('deleteuser-button');
+  expect(deleteuserButton).toBeEnabled();
 });
 
 test('does not render "Profile" button when user is not authenticated', () => {

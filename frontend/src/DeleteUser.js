@@ -79,7 +79,7 @@ function DeleteUserForm() {
         {isSubmitting ? (
           <button className="deleteuser-btn" type="submit" disabled>DELETING...</button>
         ) : (
-          <button className="deleteuser-btn" type="button" onClick={() => setIsPromptOpen(true)}>DELETE ACCOUNT</button>
+          <button className="deleteuser-btn" data-testid="deleteuser-button" type="button" onClick={() => setIsPromptOpen(true)}>DELETE ACCOUNT</button>
         )}
         {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
         {isPromptOpen && (
