@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "co": "^4.6.0",
     "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
