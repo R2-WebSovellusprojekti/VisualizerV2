@@ -82,8 +82,8 @@ function DeleteUserForm() {
     if (dialogRef.current && !dialogRef.current.contains(event.target)) {
       setIsPromptOpen(false);
     }
+  }
 
-    
     useEffect(() => {
       document.addEventListener('mousedown', handleClickOutside, true);
       return () => {
@@ -121,5 +121,6 @@ function DeleteUserForm() {
     </form>
   );
 }
+
 
 export default DeleteUserForm;

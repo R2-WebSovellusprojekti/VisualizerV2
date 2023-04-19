@@ -6,6 +6,7 @@
     "concurrently": "^7.6.0"
   },
   "dependencies": {
+    "@testing-library/user-event": "^14.4.3",
     "bcryptjs": "^2.4.3",
     "chart.js": "^4.2.1",
     "cors": "^2.8.5",
