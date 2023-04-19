@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import bcrypt from 'bcryptjs';
 
 function SignInForm() {
   const [username, setUsername] = useState('');
@@ -57,12 +56,12 @@ function SignInForm() {
           const { token } = await response.json();
           const username = data.username;
 
-            localStorage.clear(); // Clear local storage
-            localStorage.setItem('token', token); // Store token in local storage
-            localStorage.setItem('username', username); // Store username in local storage
+          localStorage.clear(); // Clear local storage
+          localStorage.setItem('token', token); // Store token in local storage
+          localStorage.setItem('username', username); // Store username in local storage
 
           setIsSubmitting(false);
-          setSuccessMessage('User signed in successfully!');
+          setSuccessMessage('Signed in successfully!');
           setUsername('');
           setPassword('');
           //Redirect to front page
@@ -70,7 +69,6 @@ function SignInForm() {
         } else if (response.status === 401) {
           setUsernameError('Invalid username or password');
           setIsSubmitting(false);
-          setUsername('');
           setPassword('');
           throw new Error('Invalid username or password');
         } else {

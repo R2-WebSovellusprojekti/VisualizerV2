@@ -16,6 +16,9 @@ function DeleteUserForm() {
   function handleUsernameChange(event) {
     setUsername(event.target.value);
   }
+  function handleUsernameFocus() {
+    setErrorMessage('');
+  }
 
   function handleUsernameFocus() {
     setErrorMessage('');
@@ -50,11 +53,11 @@ function DeleteUserForm() {
     const data = { username };
 
     if (token && username) {
-    fetch(SERVER_ADDRESS, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
+      fetch(SERVER_ADDRESS, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
       .then(async response => {
         if (response.ok) {
           localStorage.clear(); // Clear local storage
@@ -70,16 +73,16 @@ function DeleteUserForm() {
         console.error('Error:', error);
         setIsSubmitting(false);
       });
-  } else {
-    setIsSubmitting(false);
+    } else {
+      setIsSubmitting(false);
     }
+  }
+
+  function handleClickOutside(event) {
+    if (dialogRef.current && !dialogRef.current.contains(event.target)) {
+      setIsPromptOpen(false);
     }
-    function handleClickOutside(event) {
-      if (dialogRef.current && !dialogRef.current.contains(event.target)) {
-        setIsPromptOpen(false);
-      }
-    }
-  
+
     
     useEffect(() => {
       document.addEventListener('mousedown', handleClickOutside, true);
