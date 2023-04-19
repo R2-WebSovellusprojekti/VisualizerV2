@@ -82,6 +82,7 @@ function DeleteUserForm() {
     if (dialogRef.current && !dialogRef.current.contains(event.target)) {
       setIsPromptOpen(false);
     }
+  }
 
     
     useEffect(() => {
