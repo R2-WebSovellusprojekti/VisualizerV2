@@ -81,11 +81,11 @@ function SignupForm() {
       <div style ={{ display: 'flex', flexDirection: 'column' }}>
         <label className='dropdown-txt'>
           Choose your username
-          <input type="text" className='dropdown-txt' value={username} onChange={handleUsernameChange} onFocus={handleFocus}/>
+          <input type="text" className='dropdown-txt2' value={username} onChange={handleUsernameChange} onFocus={handleFocus}/>
         </label>
         <label className='dropdown-txt'>
           Choose your password
-          <input type="password" className='dropdown-txt' value={password} onChange={handlePasswordChange} onFocus={handleFocus}/>
+          <input type="password" className='dropdown-txt2' value={password} onChange={handlePasswordChange} onFocus={handleFocus}/>
         </label>
         {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>} {/* Display the username error message */}
         {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Display the success message */}
@@ -95,6 +95,7 @@ function SignupForm() {
       ) : (
         <button type="submit" className='dropdown-btn2'>SIGN UP</button>
       )}
+
 
     </form>
   );
