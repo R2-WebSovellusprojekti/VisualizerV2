@@ -80,7 +80,7 @@ function App() {
           )}
         </div>
         <div className="footer">
-          <a href="https://github.com/R2-WebSovellusprojekti/VisualizerV2" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/R2-WebSovellusprojekti/VisualizerV2" target="_blank" rel="noopener noreferrer data-testid="github-button">
             <img className="github-logo" src="/github-mark-white.png" alt="" />
           </a>
         </div>
