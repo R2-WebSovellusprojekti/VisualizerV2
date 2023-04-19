@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { AuthProvider } from './AuthProvider';
+//import { AuthProvider } from './AuthProvider';
 //import SignupForm from './Signup';
 //import SigninForm from './Signin';
 

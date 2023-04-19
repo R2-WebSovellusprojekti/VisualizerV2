@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import bcrypt from 'bcryptjs';
 import './Styles.css';
@@ -15,6 +14,10 @@ function SignupForm() {
     setUsernameError('');
     setSuccessMessage('');
   }
+  function handleFocus() {
+    setUsernameError('');
+  }
+
   function handleFocus() {
     setUsernameError('');
   }
@@ -78,7 +81,7 @@ function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style ={{ display: 'flex', flexDirection: 'column' }}>
         <label className='dropdown-txt'>
           Choose your username
           <input type="text" className='dropdown-txt2' value={username} onChange={handleUsernameChange} onFocus={handleFocus}/>
@@ -98,5 +101,7 @@ function SignupForm() {
     </form>
   );
 }
+
+
 
 export default SignupForm;
