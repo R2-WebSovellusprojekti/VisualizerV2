@@ -88,11 +88,11 @@ function SignInForm() {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <label className='dropdown-txt'>
           Username
-          <input type="text" className='dropdown-txt' value={username} onChange={handleUsernameChange} onFocus={handleFocus} />
+          <input type="text" className='dropdown-txt2' value={username} onChange={handleUsernameChange} onFocus={handleFocus} />
         </label>
         <label className='dropdown-txt'>
           Password
-          <input type="password" className='dropdown-txt' value={password} onChange={handlePasswordChange} onFocus={handleFocus}/>
+          <input type="password" className='dropdown-txt2' value={password} onChange={handlePasswordChange} onFocus={handleFocus}/>
         </label>
         {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
         {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>}

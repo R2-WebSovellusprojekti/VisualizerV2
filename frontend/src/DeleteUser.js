@@ -37,7 +37,7 @@ function DeleteUserForm() {
         setErrorMessage('');
     }
 
-  if (username !== localStorage.getItem('username')) {
+    if (username !== localStorage.getItem('username')) {
         setErrorMessage('You can only delete your own account!');
         setUsername('');
         return;
@@ -80,12 +80,12 @@ function DeleteUserForm() {
       }
     }
   
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside, true);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside, true);
-    };
-  }, []);
+    useEffect(() => {
+      document.addEventListener('mousedown', handleClickOutside, true);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside, true);
+      };
+    }, []);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -102,7 +102,7 @@ function DeleteUserForm() {
             <p style={{ marginTop: '-1%', marginBottom: '10px', fontSize: '18px' }}>Are you sure you want to delete this account?</p>
             <div className="confirm-dialog-input">
               <label htmlFor="username">Enter your username to delete</label>
-              <input type="text" id="username" value={username} onChange={handleUsernameChange} onFocus={handleUsernameFocus} />
+              <input type="text" id="username" value={username} onChange={handleUsernameChange} onFocus={handleUsernameFocus}/>
             </div>
             {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>}
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}

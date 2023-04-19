@@ -79,16 +79,16 @@ function SignupForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div style ={{ display: 'flex', flexDirection: 'column' }}>
-      <label className='dropdown-txt'>
-        Choose your username
-        <input type="text" className='dropdown-txt' value={username} onChange={handleUsernameChange} onFocus={handleFocus}/>
-      </label>
-      <label className='dropdown-txt'>
-        Choose your password
-        <input type="password" className='dropdown-txt' value={password} onChange={handlePasswordChange} onFocus={handleFocus}/>
-      </label>
-      {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>} {/* Display the username error message */}
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Display the success message */}
+        <label className='dropdown-txt'>
+          Choose your username
+          <input type="text" className='dropdown-txt' value={username} onChange={handleUsernameChange} onFocus={handleFocus}/>
+        </label>
+        <label className='dropdown-txt'>
+          Choose your password
+          <input type="password" className='dropdown-txt' value={password} onChange={handlePasswordChange} onFocus={handleFocus}/>
+        </label>
+        {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>} {/* Display the username error message */}
+        {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>} {/* Display the success message */}
       </div>
       {isSubmitting ? (
         <button type="submit" className='dropdown-btn' disabled>SUBMITTING...</button>
@@ -99,5 +99,7 @@ function SignupForm() {
     </form>
   );
 }
+
+
 
 export default SignupForm;
