@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const jwt = require('jsonwebtoken');
 const secretKey = 'your_secret_key';
-const SERVER_PORT = 5000;
+const SERVER_PORT = process.env.NODE_ENV === 'test' ? 5001 : 5000;
 
 app.use(bodyParser.json());
 // Enable CORS for all routes
@@ -60,6 +60,7 @@ app.post('/api/signup', async (req, res) => {
       // Return a 201 Created status with the new user data
       console.log(`New user ${username} created`);
       res.status(201).json({ message: 'User created', user: { username } });
+
     });
   });
 });
@@ -149,3 +150,5 @@ app.delete ('/api/deleteuser',  (req, res) => {
         res.status(200).json({ message: 'User deleted', user: { username } });
       });
     });
+
+    module.exports = app;
