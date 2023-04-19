@@ -8,10 +8,12 @@ import React, { useState, useEffect } from 'react';
 import './Styles.css'
 import N1Charts from './N1Charts';
 import N2Charts from './N2Charts';
-import N3Charts from './N3Charts';
+import CreateChartButton from './CreateChartButton';
+import CreateChart from './CreateChart';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isNewChartCreated, setIsNewChartCreated] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -32,6 +34,10 @@ function App() {
 
   const handleProfileClick = () => {
     console.log('Profile clicked');
+  };
+
+  const handleCreateChartClick = () => {
+    setIsNewChartCreated(true);
   };
 
   return (
@@ -58,25 +64,27 @@ function App() {
                 </li>
               </>
             )}
-            <li>
-              <a href="https://github.com/R2-WebSovellusprojekti/VisualizerV2" target="_blank" rel="noopener noreferrer" data-testid="github-button">
-              <img 
-                className="github-logo"
-                src ="/github-mark-white.png" alt="" />
-              </a>
-            </li>
           </ul>
         </nav>
-          <div className="chart-box">
-        <N1Charts />
+        <div className="chart-box">
+            <N1Charts />
         </div>
         <div className="chart-box">
-        <N2Charts />
+          <N2Charts />
         </div>
         <div className="chart-box">
-        <N3Charts />
+          {isNewChartCreated ? (
+            <CreateChart />
+          ) : (
+          <CreateChartButton onClick={handleCreateChartClick} />
+          )}
         </div>
+        <div className="footer">
+          <a href="https://github.com/R2-WebSovellusprojekti/VisualizerV2" target="_blank" rel="noopener noreferrer" data-testid="github-button">
+            <img className="github-logo" src="/github-mark-white.png" alt="" />
+          </a>
         </div>
+      </div>
     </Router>
   );
 }

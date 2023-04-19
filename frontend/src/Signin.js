@@ -92,7 +92,7 @@ function SignInForm() {
         </label>
         <label className='dropdown-txt'>
           Password
-          <input type="password" className='dropdown-txt' value={password} onChange={handlePasswordChange} onFocus={handleFocus} />
+          <input type="password" className='dropdown-txt' value={password} onChange={handlePasswordChange} onFocus={handleFocus}/>
         </label>
         {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
         {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>}

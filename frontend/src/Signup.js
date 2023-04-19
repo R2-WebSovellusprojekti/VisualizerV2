@@ -57,7 +57,7 @@ function SignupForm() {
               setSuccessMessage('User added successfully!'); // Set the success message
               setUsername(''); // Reset the form fields
               setPassword('');
-              window.location.href = '/'; //Redirect to front page
+              window.location.href = '/';
             } else if (response.status === 409) {
               setUsernameError('Username is already taken');
               setIsSubmitting(false); // Set the form to non-submitting state
@@ -82,7 +82,6 @@ function SignupForm() {
       <label className='dropdown-txt'>
         Choose your username
         <input type="text" className='dropdown-txt' value={username} onChange={handleUsernameChange} onFocus={handleFocus}/>
-{/*        {usernameError && <span style={{ color: 'red' }}>{usernameError}</span>}         */}
       </label>
       <label className='dropdown-txt'>
         Choose your password
@@ -96,7 +95,7 @@ function SignupForm() {
       ) : (
         <button type="submit" className='dropdown-btn2'>SIGN UP</button>
       )}
-      
+
     </form>
   );
 }

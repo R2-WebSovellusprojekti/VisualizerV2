@@ -30,17 +30,17 @@ function DeleteUserForm() {
     }
 
     if (!username.trim()) {
-      setErrorMessage('Username cannot be empty!');
-      setUsername('');
-      return;
+        setErrorMessage('Username cannot be empty!');
+        setUsername('');
+        return;
     } else {
         setErrorMessage('');
     }
 
   if (username !== localStorage.getItem('username')) {
-      setErrorMessage('You can only delete your own account!');
-      setUsername('');
-      return;
+        setErrorMessage('You can only delete your own account!');
+        setUsername('');
+        return;
     } else {
         setErrorMessage('');
     }
@@ -80,42 +80,42 @@ function DeleteUserForm() {
       }
     }
   
-    useEffect(() => {
-      document.addEventListener('mousedown', handleClickOutside, true);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside, true);
-      };
-    }, []);
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside, true);
+    };
+  }, []);
 
-    return (
-      <form onSubmit={handleSubmit}>
-        {isSubmitting ? (
-          <button className="deleteuser-btn" type="submit" disabled>DELETING...</button>
-        ) : (
-          <button className="deleteuser-btn" data-testid="deleteuser-button" type="button" onClick={() => setIsPromptOpen(true)}>DELETE ACCOUNT</button>
-        )}
-        {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-        {isPromptOpen && (
-          <div className="confirm-dialog" ref={dialogRef}>
-            <div className="confirm-dialog-content">
-              <h2 style={{ marginBottom: '0%', color: 'red' }}>DELETE ACCOUNT</h2>
-              <p style={{ marginTop: '-1%', marginBottom: '10px', fontSize: '18px' }}>Are you sure you want to delete this account?</p>
-              <div className="confirm-dialog-input">
-                <label htmlFor="username">Enter your username to delete</label>
-                  <input type="text" id="username" value={username} onChange={handleUsernameChange} onFocus={handleUsernameFocus} />
-              </div>
-              {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>}
-              {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-              {isAuthError && <p style={{ color: 'red' }}>{authErrorMessage}</p>}
-              <div className="confirm-dialog-buttons" style={{ marginTop: '20px' }}>
-                <button className="confirm-dialog-confirm" type="submit">DELETE</button>
-                <button className="confirm-dialog-cancel" type="button" onClick={() => setIsPromptOpen(false)}>CANCEL</button>
-              </div>
+  return (
+    <form onSubmit={handleSubmit}>
+      {isSubmitting ? (
+        <button className="deleteuser-btn" type="submit" disabled>DELETING...</button>
+      ) : (
+        <button className="deleteuser-btn" data-testid="deleteuser-button" type="button" onClick={() => setIsPromptOpen(true)}>DELETE ACCOUNT</button>
+      )}
+      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+      {isPromptOpen && (
+        <div className="confirm-dialog" ref={dialogRef}>
+          <div className="confirm-dialog-content">
+            <h2 style={{ marginBottom: '0%', color: 'red' }}>DELETE ACCOUNT</h2>
+            <p style={{ marginTop: '-1%', marginBottom: '10px', fontSize: '18px' }}>Are you sure you want to delete this account?</p>
+            <div className="confirm-dialog-input">
+              <label htmlFor="username">Enter your username to delete</label>
+              <input type="text" id="username" value={username} onChange={handleUsernameChange} onFocus={handleUsernameFocus} />
+            </div>
+            {usernameError && <p style={{ color: 'red' }}>{usernameError}</p>}
+            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+            {isAuthError && <p style={{ color: 'red' }}>{authErrorMessage}</p>}
+            <div className="confirm-dialog-buttons" style={{ marginTop: '20px' }}>
+              <button className="confirm-dialog-confirm" type="submit">DELETE</button>
+              <button className="confirm-dialog-cancel" type="button" onClick={() => setIsPromptOpen(false)}>CANCEL</button>
             </div>
           </div>
-        )}
-      </form>
-    );
+        </div>
+      )}
+    </form>
+  );
 }
 
 export default DeleteUserForm;
