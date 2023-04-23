@@ -7,7 +7,7 @@ function SignInForm() {
   const [passwordError, setPasswordError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
-  const SERVER_ADDRESS = 'http://dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com:5000/api/signin';
+  const SERVER_ADDRESS = 'https://r2-websovellusprojekti.onrender.com/api/signin';
 
   function handleUsernameChange(event) {
     setUsername(event.target.value);
