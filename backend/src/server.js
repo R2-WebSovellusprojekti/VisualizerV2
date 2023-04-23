@@ -21,17 +21,16 @@ app.listen(SERVER_PORT, () => {
 //-----------------------------------------DATABASE----------------------------------------------
 // Create a connection pool for the PostgreSQL database
 const pool = new Pool({
- connectionString: 'postgres://r2:So89P9cm37yaR22nqNjyktWJLSB4Ywo7@dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com:5432/r2db',
+// connectionString: 'postgres://r2:So89P9cm37yaR22nqNjyktWJLSB4Ywo7@dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com:5432/r2db',
   ssl: {
     rejectUnauthorized: false
-  }
-/*
+  },
   user: 'r2',
   host: 'dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com',
   database: 'r2db',
   password: 'So89P9cm37yaR22nqNjyktWJLSB4Ywo7',
   port: 5432, // The default PostgreSQL port
-*/
+
 });
 pool.connect()
   .then(() => console.log('Connected to PostgreSQL database'))
