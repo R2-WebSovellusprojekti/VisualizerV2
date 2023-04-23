@@ -33,6 +33,9 @@ const pool = new Pool({
   port: 5432, // The default PostgreSQL port
 */
 });
+pool.connect()
+  .then(() => console.log('Connected to PostgreSQL database'))
+  .catch((err) => console.error('Error connecting to PostgreSQL database', err));
 
 //-----------------------------------------SIGN UP-----------------------------------------------
 // Define the /api/signup endpoint
