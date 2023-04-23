@@ -84,7 +84,6 @@ function DeleteUserForm() {
     }
   }
 
-    
     useEffect(() => {
       document.addEventListener('mousedown', handleClickOutside, true);
       return () => {
@@ -122,5 +121,6 @@ function DeleteUserForm() {
     </form>
   );
 }
+
 
 export default DeleteUserForm;

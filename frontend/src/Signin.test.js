@@ -43,7 +43,7 @@ describe('SignInForm', () => {
     fireEvent.submit(screen.getByRole('button', { name: 'LOG IN' }));
 
     // wait for success message to appear
-    const successMessage = await screen.findByText(/User signed in successfully!/i);
+    const successMessage = await screen.findByText(/Signed in successfully!/i);
     expect(successMessage).toBeInTheDocument();
 
     // check local storage for token and username
