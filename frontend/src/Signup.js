@@ -8,6 +8,7 @@ function SignupForm() {
   const [usernameError, setUsernameError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const SERVER_ADDRESS = 'http://localhost:5000/api/signup';
 
   function handleUsernameChange(event) {
     setUsername(event.target.value);
@@ -49,7 +50,7 @@ function SignupForm() {
 
         const data = { username, password: hash };
 
-        fetch('http://localhost:5000/api/signup', {
+        fetch(SERVER_ADDRESS, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
