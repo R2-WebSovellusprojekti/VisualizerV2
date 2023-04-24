@@ -34,7 +34,7 @@ function SignOutButton() {
 
   return (
     <>
-      <button className='signout-btn' onClick={handleSignOut}>SIGN OUT</button>
+      <button className='signout-btn' data-testid='signout-button' onClick={handleSignOut}>SIGN OUT</button>
       {isConfirmOpen && (
         <ConfirmationDialog
           onConfirm={handleConfirm}

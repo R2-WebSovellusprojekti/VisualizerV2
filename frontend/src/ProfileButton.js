@@ -31,7 +31,8 @@ function ProfileButton() {
   return (
     <div className="profile-container">
       <button type="button"
-              className='profile-btn' 
+              data-testid="profile-button"
+              className='profile-btn'
               onClick={handleButtonClick}
               ref={buttonRef}>
         <img src="/pngegg.png" alt="" />
