@@ -1,46 +1,24 @@
 /*.n1chart-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     border-radius: 10px;
-    width: 100%;
+    width: calc(100vw);
     margin: 0 auto;
     overflow: auto;
     flex-wrap: nowrap;
-}*/
-
-.n1chart-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-/*.n2chart-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-radius: 10px;
-    width: 100%;
-    margin: 0 auto;
-    overflow: auto;
-    flex-wrap: nowrap;
-}*/
+}
 .n2chart-container {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-  }
+    border-radius: 10px;
+    width: calc(100vw);
+    margin: 0 auto;
+    overflow: auto;
+    flex-wrap: nowrap;
+}
 .n3chart-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-/*.n3chart-container {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     border-radius: 10px;
     width: 100%;
@@ -70,21 +48,87 @@
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1rem;
     display: flex;
     flex-direction: row;
     max-width: 95vw;
+    max-height: 95vh;
     box-shadow: 0px 0px 3px rgb(255, 255, 255);
     justify-content: center;
     align-items: center;
-}
-  
-.chart-box .line-graph {
-    flex: 1; /* this will make each line graph take up equal space in the box */
-    margin: 10px;
+    overflow: auto;
+    min-width: 95vw;
 }
 canvas {
     font-family: 'Saira', 'sans-serif';
-    overflow: scroll;
-    width: 600px !important;
+    overflow: visible;
+    min-width: 550px;
+    width: 100% !important;
     height: auto !important;
+
+}
+
+/*Buttons*/
+.line-button {
+    margin: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    background-color: #252525;
+    color: #ffffff;
+    text-shadow: #ffffff 0px 0px 1px;
+    font-family: 'Saira', 'sans-serif';
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    outline: none;
+    box-shadow: 0px 0px 3px rgb(255, 255, 255);
+}
+.line-button:hover {
+    background-color: #353535;
+    color: #ffffff;
+    text-shadow: #ffffff 0px 0px 1px;
+    box-shadow: 0px 0px 3px rgb(255, 255, 255);
+}
+.create-chart-button {
+    margin: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    background-color: #252525;
+    color: #ffffff;
+    text-shadow: #ffffff 0px 0px 1px;
+    font-family: 'Saira', 'sans-serif';
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    outline: none;
+    box-shadow: 0px 0px 3px rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 2300px) {
+    canvas {
+        min-width: 750px;
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+@media screen and (max-width: 601px) {
+    canvas {
+        max-width: 450px;
+        height: auto !important;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .n2chart-container {
+        display: flex;
+        justify-content: flex-start;
+        border-radius: 10px;
+        width: 100%;
+        margin: 0 auto;
+        overflow: auto;
+        flex-wrap: nowrap;
+    }
 }
