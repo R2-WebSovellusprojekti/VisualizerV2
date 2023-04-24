@@ -4,5 +4,5 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface hcmonthlyRepository extends JpaRepository<hcmonthly, Long> {
-    List<hcmonthly> findAllByOrderByYearAsc();
+    List<hcmonthly> findAll();
 }

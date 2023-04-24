@@ -24,7 +24,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'r2db',
-  password: 'password',
+  password: 'admin',
   port: 5432, // The default PostgreSQL port
 });
 

@@ -12,6 +12,7 @@ public class hcmonthlyService {
     private hcmonthlyRepository hcmonthlyRepo;
 
     public List<hcmonthly> getAllMonthlyData() {
-        return hcmonthlyRepo.findAllByOrderByYearAsc();
+        return hcmonthlyRepo.findAll();
+        //return hcmonthlyRepo.find
     }
 }

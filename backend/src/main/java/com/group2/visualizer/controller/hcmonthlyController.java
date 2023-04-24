@@ -7,6 +7,7 @@ import java.util.List;
 import com.group2.visualizer.model.hcmonthly;
 import com.group2.visualizer.model.hcmonthlyRepository;
 
+
 @RestController
 @RequestMapping("/api/hcmonthly")
 public class hcmonthlyController {
@@ -15,8 +16,27 @@ public class hcmonthlyController {
     private hcmonthlyRepository hcmonthlyRepository;
 
     // GET /api/hcmonthly
-    @GetMapping("")
-    public List<hcmonthly> getAllHcMonthly() {
+    @GetMapping("/all")
+    public List<hcmonthly> getAllMonthlyData() {
         return hcmonthlyRepository.findAll();
     }
 }
+
+/*@RestController
+@RequestMapping("/api")
+public class hcmonthlyController {
+
+    @Autowired
+    private hcmonthlyRepository hcmonthlyRepository;
+
+    // GET /api/hcmonthly/all
+    @GetMapping("/hcmonthly/all")
+    public List<hcmonthly> getAllMonthlyData() {
+        return hcmonthlyRepository.findAll();
+    }
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello, World!";
+    }
+}*/
