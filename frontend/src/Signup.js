@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import bcrypt from 'bcryptjs';
 import './Styles.css';
@@ -9,12 +8,17 @@ function SignupForm() {
   const [usernameError, setUsernameError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const SERVER_ADDRESS = 'http://localhost:5000/api/signup';
 
   function handleUsernameChange(event) {
     setUsername(event.target.value);
     setUsernameError('');
     setSuccessMessage('');
   }
+  function handleFocus() {
+    setUsernameError('');
+  }
+
   function handleFocus() {
     setUsernameError('');
   }
@@ -46,7 +50,7 @@ function SignupForm() {
 
         const data = { username, password: hash };
 
-        fetch('http://localhost:5000/api/signup', {
+        fetch(SERVER_ADDRESS, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
@@ -78,7 +82,7 @@ function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style ={{ display: 'flex', flexDirection: 'column' }}>
         <label className='dropdown-txt'>
           Choose your username
           <input type="text" className='dropdown-txt2' value={username} onChange={handleUsernameChange} onFocus={handleFocus}/>
@@ -98,5 +102,7 @@ function SignupForm() {
     </form>
   );
 }
+
+
 
 export default SignupForm;
