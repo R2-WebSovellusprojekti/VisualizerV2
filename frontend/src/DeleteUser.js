@@ -20,6 +20,10 @@ function DeleteUserForm() {
     setErrorMessage('');
   }
 
+  function handleUsernameFocus() {
+    setErrorMessage('');
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -80,19 +84,19 @@ function DeleteUserForm() {
     }
   }
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside, true);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside, true);
-    };
-  }, []);
+    useEffect(() => {
+      document.addEventListener('mousedown', handleClickOutside, true);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside, true);
+      };
+    }, []);
 
   return (
     <form onSubmit={handleSubmit}>
       {isSubmitting ? (
         <button className="deleteuser-btn" type="submit" disabled>DELETING...</button>
       ) : (
-        <button className="deleteuser-btn" type="button" onClick={() => setIsPromptOpen(true)}>DELETE ACCOUNT</button>
+        <button className="deleteuser-btn" data-testid="deleteuser-button" type="button" onClick={() => setIsPromptOpen(true)}>DELETE ACCOUNT</button>
       )}
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
       {isPromptOpen && (
@@ -117,5 +121,6 @@ function DeleteUserForm() {
     </form>
   );
 }
+
 
 export default DeleteUserForm;

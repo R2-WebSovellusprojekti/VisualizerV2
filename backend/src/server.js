@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const jwt = require('jsonwebtoken');
 const secretKey = 'your_secret_key';
-const SERVER_PORT = 5000;
+const SERVER_PORT = process.env.NODE_ENV === 'test' ? 5001 : 5000;
 
 app.use(bodyParser.json());
 // Enable CORS for all routes
@@ -21,11 +21,17 @@ app.listen(SERVER_PORT, () => {
 //-----------------------------------------DATABASE----------------------------------------------
 // Create a connection pool for the PostgreSQL database
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
+ connectionString: 'postgres://r2:So89P9cm37yaR22nqNjyktWJLSB4Ywo7@dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com:5432/r2db',
+  ssl: {
+    rejectUnauthorized: false
+  }
+/*
+  user: 'r2',
+  host: 'dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com',
   database: 'r2db',
-  password: 'password',
+  password: 'So89P9cm37yaR22nqNjyktWJLSB4Ywo7',
   port: 5432, // The default PostgreSQL port
+*/
 });
 
 //-----------------------------------------SIGN UP-----------------------------------------------
@@ -60,6 +66,7 @@ app.post('/api/signup', async (req, res) => {
       // Return a 201 Created status with the new user data
       console.log(`New user ${username} created`);
       res.status(201).json({ message: 'User created', user: { username } });
+
     });
   });
 });
@@ -149,3 +156,5 @@ app.delete ('/api/deleteuser',  (req, res) => {
         res.status(200).json({ message: 'User deleted', user: { username } });
       });
     });
+
+    module.exports = app;
