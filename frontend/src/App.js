@@ -6,7 +6,7 @@ import SignupButton from './SignupButton';
 import ProfileButton from './ProfileButton';
 import React, { useState, useEffect } from 'react';
 import './Styles.css'
-import N1Charts from './N1Charts';
+import V1Chart from './V1Chart';
 import N2Charts from './N2Charts';
 import CreateChartButton from './CreateChartButton';
 import CreateChart from './CreateChart';
@@ -45,7 +45,7 @@ function App() {
       <div className="App">
         <nav className="navbar">
           <NavLink to="/" className="logo-container">
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src={logo} className="App-logo" alt="logo"/>
             <h1 className='title' >R2 Visualizer Project</h1>
           </NavLink>
 
@@ -67,7 +67,7 @@ function App() {
           </ul>
         </nav>
         <div className="chart-box">
-            <N1Charts />
+            <V1Chart />
         </div>
         <div className="chart-box">
           <N2Charts />

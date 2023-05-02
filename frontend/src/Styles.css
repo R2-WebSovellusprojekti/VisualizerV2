@@ -18,6 +18,7 @@
   max-width: 100%;
   margin: 0 auto;
   text-shadow: 0 0 5px #000000;
+  box-shadow: #ffffff 0px 0px 3px;
 }
 .signout-btn:hover {
   background-color: #b3b3b3;
@@ -74,12 +75,14 @@
 .profile-dropdown {
   position: absolute;
   top: calc(100% + 0.6rem);
-  right: calc(-20% - 0.6rem);
+  left: 50%;
   background-color: #252525;
-  border: 1px solid #000000;
   padding: 0.7rem;
+  padding-bottom: 0rem;
   z-index: 1;
   border-radius: 4px;
+  box-shadow: 0 0 5px #007fd4;
+  margin-left: -100px;
 }
 .profile-dropdown * {
   margin-bottom: -0.5rem;
@@ -101,7 +104,7 @@
     right: 45%;
     border-top: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #000000;
+    border-bottom: 10px solid #005e9c;
     border-left: 10px solid transparent;
   }
 
@@ -109,9 +112,9 @@
 /*DELETE ACCOUNT button*/  
 .deleteuser-btn {
     font-family: 'Saira', sans-serif;
-    background-color: #ff0000; 
+    background-color: #700000; 
     border: none;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 5px 15px;
     text-align: center;
     text-decoration: none;
@@ -126,6 +129,7 @@
     max-width: 100%;
     margin: 0 auto;
     text-shadow: 0 0 5px #000000;
+    box-shadow: red   0px 0px 5px;
   }
   .deleteuser-btn:hover {
     background-color: darkred;
@@ -134,14 +138,15 @@
   .confirm-dialog {
     font-size: 20px;
     position: fixed;
-    top: 0;
-    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
   }
   
   .confirm-dialog-content {
@@ -302,7 +307,7 @@
   right: 43%;
   border-top: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #000000;
+  border-bottom: 10px solid rgb(45, 160, 0);
   border-left: 10px solid transparent;
 }
   
@@ -365,7 +370,7 @@
   }
     .signupdropdown-btn:hover {
         border-radius: 45px;
-        background-color: #007fd4;
+        background-color: #10b4b4;
         color: #ffffff !important;
         border-color: #afafaf  !important;
   }
@@ -377,7 +382,7 @@
   right: 40%;
   border-top: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #000000;
+  border-bottom: 10px solid rgb(36, 167, 177);
   border-left: 10px solid transparent;
 }
 
@@ -503,7 +508,7 @@
   @media (max-width: 950px) {
     .deleteuser-btn {
       font-family: 'Saira', sans-serif;
-      background-color: #ff0000; 
+      background-color: #700000; 
       border: none;
       color: white;
       padding: 5px 15px;
@@ -518,6 +523,7 @@
       overflow: visible;
       max-width: 100%;
       margin: 0 auto;
+      text-shadow: #000 0px 0px 5px;
     } 
   /*Dropdown menu for SIGN UP button*/
   .signup-dropdown {
@@ -559,7 +565,7 @@
   right: 23%;
   border-top: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid rgb(226, 226, 226);
+  border-bottom: 10px solid rgb(36, 167, 177);
   border-left: 10px solid transparent;
 }
 
@@ -582,7 +588,7 @@
   right: 67%;
   border-top: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid rgb(226, 226, 226);
+  border-bottom: 10px solid rgb(57, 201, 0);
   border-left: 10px solid transparent;
 }
   /*LOG IN button*/

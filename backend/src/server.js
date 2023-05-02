@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const jwt = require('jsonwebtoken');
 const secretKey = 'your_secret_key';
-const SERVER_PORT = process.env.NODE_ENV === 'test' ? 5001 : 5000;
+const SERVER_PORT = 5000;
 
 app.use(bodyParser.json());
 // Enable CORS for all routes
@@ -21,17 +21,16 @@ app.listen(SERVER_PORT, () => {
 //-----------------------------------------DATABASE----------------------------------------------
 // Create a connection pool for the PostgreSQL database
 const pool = new Pool({
- connectionString: 'postgres://r2:So89P9cm37yaR22nqNjyktWJLSB4Ywo7@dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com:5432/r2db',
+ /*connectionString: 'postgres://r2:So89P9cm37yaR22nqNjyktWJLSB4Ywo7@dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com:5432/r2db',
   ssl: {
     rejectUnauthorized: false
-  }
-/*
-  user: 'r2',
-  host: 'dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com',
+  }*/
+
+  user: 'postgres',
+  host: 'localhost',
   database: 'r2db',
-  password: 'So89P9cm37yaR22nqNjyktWJLSB4Ywo7',
+  password: 'password',
   port: 5432, // The default PostgreSQL port
-*/
 });
 
 //-----------------------------------------SIGN UP-----------------------------------------------
@@ -157,4 +156,28 @@ app.delete ('/api/deleteuser',  (req, res) => {
       });
     });
 
-    module.exports = app;
+module.exports = app;
+
+app.get('/api/hcmonthly', (req, res) => {
+  pool.query('SELECT * FROM hc_monthly', (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    } else {
+      console.log(results);
+      res.json(results);
+    }
+  });
+});
+
+app.get('/api/hcannual', (req, res) => {
+  pool.query('SELECT * FROM hc_annual', (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    } else {
+      console.log(results);
+      res.json(results);
+    }
+  });
+});

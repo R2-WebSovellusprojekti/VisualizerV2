@@ -19,10 +19,6 @@ function SignupForm() {
     setUsernameError('');
   }
 
-  function handleFocus() {
-    setUsernameError('');
-  }
-
   function handlePasswordChange(event) {
     setPassword(event.target.value);
   }
