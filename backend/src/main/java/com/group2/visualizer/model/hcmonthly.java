@@ -5,7 +5,7 @@ import javax.persistence.*;
 public class hcmonthly {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  //private Integer id;
 
   private Integer year_;
 
@@ -18,13 +18,13 @@ public class hcmonthly {
   private Double southern;
 
   // Getters and setters
-  public int getId() {
+ /*  public int getId() {
     return id;
 }
 
 public void setId(int id) {
     this.id = id;
-}
+}*/
   public Integer getYear_() {
     return year_;
 }

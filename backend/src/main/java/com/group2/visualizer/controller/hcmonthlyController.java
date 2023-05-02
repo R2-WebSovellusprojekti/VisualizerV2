@@ -8,7 +8,7 @@ import com.group2.visualizer.model.hcmonthly;
 import com.group2.visualizer.model.hcmonthlyRepository;
 
 
-@RestController
+/*@RestController
 @RequestMapping("/api/hcmonthly")
 public class hcmonthlyController {
 
@@ -20,7 +20,8 @@ public class hcmonthlyController {
     public List<hcmonthly> getAllMonthlyData() {
         return hcmonthlyRepository.findAll();
     }
-}
+}*/
+
 
 /*@RestController
 @RequestMapping("/api")

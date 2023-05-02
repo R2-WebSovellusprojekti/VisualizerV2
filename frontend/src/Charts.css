@@ -1,4 +1,4 @@
-/*.n1chart-container {
+.n1chart-container {
     display: flex;
     justify-content: flex-start;
     border-radius: 10px;
@@ -25,15 +25,15 @@
     margin: 0 auto;
     overflow: auto;
     flex-wrap: nowrap;
-}*/
-/*.chart-column {
+}
+.chart-column {
     margin-bottom: 20px;
     flex-direction: row;
     border: #000000 solid 1px;
     border-radius: 5px;
     margin: 1rem;
     
-}*/
+}
 .chart-row {
   width: 100%;
   max-width: 600px;

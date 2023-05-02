@@ -20,11 +20,18 @@ app.listen(SERVER_PORT, () => {
 
 //-----------------------------------------DATABASE----------------------------------------------
 // Create a connection pool for the PostgreSQL database
-const pool = new Pool({
+/*const pool = new Pool({
  connectionString: 'postgres://r2:So89P9cm37yaR22nqNjyktWJLSB4Ywo7@dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com:5432/r2db',
   ssl: {
     rejectUnauthorized: false
-  }
+  }*/
+  const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'r2db',
+    password: 'admin',
+    port: 5432, // The default PostgreSQL port
+  });
 /*
   user: 'r2',
   host: 'dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com',
@@ -32,7 +39,7 @@ const pool = new Pool({
   password: 'admin',
   port: 5432, // The default PostgreSQL port
 */
-});
+//});
 
 //-----------------------------------------SIGN UP-----------------------------------------------
 // Define the /api/signup endpoint
@@ -157,4 +164,104 @@ app.delete ('/api/deleteuser',  (req, res) => {
       });
     });
 
+
+    // Define the /api/getdata endpoint
+/*app.get('/api/hcmonthly', async (req, res) => {
+
+  // Retrieve the data from the database
+  pool.query('SELECT * FROM hc_monthly', (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Error retrieving data from database');
+    }
+    res.send(results);
+  });
+});*/
+//käytä tätä
+/*app.get('/api/hcmonthly', async (req, res) => {
+  // Retrieve the data from the database
+  pool.query('SELECT * FROM hc_monthly', (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Error retrieving data from database');
+    }
+    //const chartData = results.rows.map(row => ({ x: row.label, y: row.value }));
+    //results.json(chartData);
+    res.send(results);
+  });
+});*/
+
+/*app.get('/api/hcmonthly', async (req, res) => {
+  try {
+    // Retrieve the data from the database
+    const queryResult = await pool.query('SELECT * FROM hc_monthly');
+    console.log(console.log( queryResult.rows));
+    // Format the data for Chartjs
+    const chartData = {
+      labels: queryResult.rows.map(row => `${row.year}-${row.month}`),
+      datasets: [
+        {
+          label: 'Global',
+          data: queryResult.rows.map(row => row.global),
+          borderColor: 'red',
+        },
+        {
+          label: 'Southern',
+          data: queryResult.rows.map(row => row.southern),
+          borderColor: 'blue',
+        },
+        {
+          label: 'Northern',
+          data: queryResult.rows.map(row => row.northern),
+          borderColor: 'green',
+        },
+      ],
+    };
+
+    // Send the formatted data to the client as a JSON object
+    res.json(chartData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error retrieving data from database');
+  }
+});*/
+
+
+// Convert the data into the format expected by Chart.js
+//const chartData = results.rows.map(row => ({ x: row.label, y: row.value }));
+
+// Send the data to the browser
+//res.json(chartData);
+//});
+//});
+app.get('/api/hcmonthly', (req, res) => {
+  pool.query('SELECT * FROM hc_monthly', (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    } else {
+      res.json(Array.from(results.rows));
+      
+      //res.json(results);
+    }
+  });
+});
+/*app.get('/api/hcmonthly', (req, res) => {
+  pool.query('SELECT * FROM hc_monthly', (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    } else {
+      const formattedData = results.rows.map(row => ({
+        x: new Date(row.year_, row.month_ - 1),
+        y: {
+          global: row.global_,
+          northern: row.northern_,
+          southern: row.southern_
+        }
+      }));
+      res.json(formattedData);
+    }
+  });
+});*/
     module.exports = app;
