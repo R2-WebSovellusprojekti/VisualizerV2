@@ -205,29 +205,12 @@ const V1Chart = () => {
           labels: responseRows.map(row => row.year_),
           datasets: [
             {
-              label: 'Global',
-              data: responseRows.map(row => row.global_),
-              borderColor: 'red',
+              label: 'Moberg',
+              data: responseRows.map(row => row.moberg),
+              borderColor: 'orange',
               borderWidth: 1,
-              fill: false,
-              hidden: !globalVisible,
-            },
-            {
-              label: 'Southern',
-              data: responseRows.map(row => row.southern),
-              borderColor: 'blue',
-              borderWidth: 1,
-              fill: false,
-              hidden: !southernVisible,
-            },
-            {
-              label: 'Northern',
-              data: responseRows.map(row => row.northern),
-              borderColor: 'green',
-              borderWidth: 1,
-              fill: false,
-              hidden: !northernVisible,
-            },
+              fill: false
+            }
           ],
         };
 
