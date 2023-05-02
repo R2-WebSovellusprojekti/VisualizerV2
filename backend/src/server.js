@@ -181,3 +181,15 @@ app.get('/api/hcannual', (req, res) => {
     }
   });
 });
+
+app.get('/api/v2monthly', (req, res) => {
+  pool.query('SELECT * FROM v2_monthly', (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    } else {
+      console.log(results);
+      res.json(results);
+    }
+  });
+});

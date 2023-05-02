@@ -7,7 +7,7 @@ import ProfileButton from './ProfileButton';
 import React, { useState, useEffect } from 'react';
 import './Styles.css'
 import V1Chart from './V1Chart';
-import N2Charts from './N2Charts';
+import V2Chart from './V2Chart';
 import CreateChartButton from './CreateChartButton';
 import CreateChart from './CreateChart';
 
@@ -67,10 +67,12 @@ function App() {
           </ul>
         </nav>
         <div className="chart-box">
+          <div className="chart-container">
             <V1Chart />
+            <V2Chart />
+          </div>
         </div>
         <div className="chart-box">
-          <N2Charts />
         </div>
         <div className="chart-box">
           {isNewChartCreated ? (

@@ -4,37 +4,41 @@
     border-radius: 10px;
     width: calc(100vw);
     margin: 0 auto;
-    overflow: auto;
+    overflow: visible;
     flex-wrap: nowrap;
 }
-.n2chart-container {
+.chart-container {
+    display: flex;
+    justify-content: flex-start;
+    width: calc(100vw);
+    overflow: auto;
+    flex-wrap: nowrap;
+
+  }
+.create-chart-container {
     display: flex;
     justify-content: center;
-    border-radius: 10px;
-    width: 100%;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 95vw;
+    height: 95vh;
     margin: 0 auto;
     overflow: auto;
-    flex-wrap: nowrap;
-}
-.n3chart-container {
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
-    width: 100%;
-    margin: 0 auto;
-    overflow: auto;
-    flex-wrap: nowrap;
-}
-.chart-column {
+  }
+  .chart-column {
     margin-bottom: 20px;
-    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
     border: #000000 solid 1px;
     border-radius: 5px;
     margin: 1rem;
+    width: 100%;
+    max-width: 95vw; /* add this line */
+    min-width: 600px; /* add this line */
+  }
     
-}
 .chart-box {
-
     border: 1px solid #000000;
     border-radius: 5px;
     padding: 5px;
@@ -42,24 +46,26 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
-    display: flex;
-    flex-direction: row;
     max-width: 95vw;
     max-height: 95vh;
     box-shadow: 0px 0px 3px rgb(255, 255, 255);
     justify-content: center;
     align-items: center;
+    flex-wrap: nowrap;
     overflow: auto;
-    min-width: 95vw;
-}
+  }
 canvas {
     font-family: 'Saira', 'sans-serif';
-    overflow: visible;
-    min-width: 1000px;
+    min-width: 900px;
     width: 100% !important;
     height: auto !important;
 
 }
+.create-chart-canvas {
+    font-family: 'Saira', 'sans-serif';
+    width: 100px !important;
+    height: auto !important;
+  }
 
 /*Buttons*/
 .line-button {
@@ -146,14 +152,9 @@ canvas {
         height: auto !important;
     }
 }
-@media screen and (max-width: 1300px) {
-    .n2chart-container {
-        display: flex;
-        justify-content: flex-start;
-        border-radius: 10px;
-        width: 100%;
-        margin: 0 auto;
-        overflow: auto;
-        flex-wrap: nowrap;
+@media screen and (max-width: 950px) {
+    canvas {
+      min-width: 900px;
+      height: auto !important;
     }
-}
+  }

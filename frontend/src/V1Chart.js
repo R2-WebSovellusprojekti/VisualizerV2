@@ -118,6 +118,7 @@ import { Line } from 'react-chartjs-2';
 import { Button } from 'react-bootstrap';
 import './Charts.css';
 import axios from 'axios';
+import Chart from 'chart.js/auto';
 axios.defaults.baseURL = 'http://localhost:5000';
 
 const V1Chart = () => {
@@ -159,7 +160,7 @@ const V1Chart = () => {
             {
               label: 'Global',
               data: responseRows.map(row => row.global_),
-              borderColor: 'red',
+              borderColor: 'green',
               borderWidth: 1,
               fill: false,
               hidden: !globalVisible,
@@ -167,7 +168,7 @@ const V1Chart = () => {
             {
               label: 'Southern',
               data: responseRows.map(row => row.southern),
-              borderColor: 'blue',
+              borderColor: 'red',
               borderWidth: 1,
               fill: false,
               hidden: !southernVisible,
@@ -175,7 +176,7 @@ const V1Chart = () => {
             {
               label: 'Northern',
               data: responseRows.map(row => row.northern),
-              borderColor: 'green',
+              borderColor: 'blue',
               borderWidth: 1,
               fill: false,
               hidden: !northernVisible,
@@ -207,7 +208,7 @@ const V1Chart = () => {
             {
               label: 'Global',
               data: responseRows.map(row => row.global_),
-              borderColor: 'red',
+              borderColor: 'green',
               borderWidth: 1,
               fill: false,
               hidden: !globalVisible,
@@ -215,7 +216,7 @@ const V1Chart = () => {
             {
               label: 'Southern',
               data: responseRows.map(row => row.southern),
-              borderColor: 'blue',
+              borderColor: 'red',
               borderWidth: 1,
               fill: false,
               hidden: !southernVisible,
@@ -223,11 +224,18 @@ const V1Chart = () => {
             {
               label: 'Northern',
               data: responseRows.map(row => row.northern),
-              borderColor: 'green',
+              borderColor: 'blue',
               borderWidth: 1,
               fill: false,
               hidden: !northernVisible,
             },
+            {
+              label: 'Reconstruction',
+              data: responseRows.map(row => row.moberg),
+              borderColor: 'orange',
+              borderWidth: 1,
+              fill: false
+            }
           ],
         };
 
