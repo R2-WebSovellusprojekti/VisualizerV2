@@ -10,6 +10,8 @@ import N1Charts from './N1Charts';
 import N2Charts from './N2Charts';
 import CreateChartButton from './CreateChartButton';
 import CreateChart from './CreateChart';
+import DeleteChartButton from './DeleteChartButton';
+import DeleteChart from './DeleteChart';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -38,6 +40,10 @@ function App() {
 
   const handleCreateChartClick = () => {
     setIsNewChartCreated(true);
+  };
+
+  const handleDeleteChartClick = () => {
+    setIsNewChartCreated(false);
   };
 
   return (
@@ -74,7 +80,10 @@ function App() {
         </div>
         <div className="chart-box">
           {isNewChartCreated ? (
+            <>
             <CreateChart />
+            <DeleteChartButton onClick={handleDeleteChartClick} />
+            </>
           ) : (
           <CreateChartButton onClick={handleCreateChartClick} />
           )}
