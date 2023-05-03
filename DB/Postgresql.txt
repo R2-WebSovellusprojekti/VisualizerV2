@@ -39,9 +39,26 @@ CREATE TABLE v2_monthly (
     PRIMARY KEY (Desimaldate)
 );
 
+
+
 COPY v2_monthly (Year_, Month_, desimaldate, avg_co2)
 FROM 'C:\Java\V2_Monthly.csv'
 DELIMITER ';' CSV HEADER;
+
+create table v2_annual(
+	Year_ INTEGER,
+	Mauna_Loa FLOAT,
+	Ice_Core_1 FLOAT,
+	Ice_Core_2 FLOAT,
+	Ice_Core_3 FLOAT,
+	Primary Key (YEAR_)
+	
+);
+
+COPY v2_annual (Year_, Mauna_Loa, Ice_core_1, Ice_Core_2, Ice_Core_3)
+FROM 'C:\Java\V2 annual-1.csv'
+DELIMITER ';' CSV HEADER;
+
 
 V3
 Kyr = kilo years
