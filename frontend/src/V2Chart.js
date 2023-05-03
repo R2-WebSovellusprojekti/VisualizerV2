@@ -71,7 +71,17 @@ const V2Chart = () => {
   return (
     <div className="n1chart-container">
       <div className="chart-column">
-        <Line data={data} options={options} />
+      <figure>
+  <Line data={data} options={options} />
+  <figcaption style={{ color: 'white' }}>
+    Atmospheric CO2 concentrations from Mauna Loa measurements starting 1958.
+    <br />
+  
+    <a href="https://gml.noaa.gov/ccgg/trends/data.html" style={{color: 'white'}}> Data source</a>
+    <br />
+    <a href="https://gml.noaa.gov/ccgg/about/co2_measurements.html" style={{color: 'white'}}> Description</a>
+  </figcaption>
+</figure>
         <div className="chart-controls">
         <Button onClick={toggleLine} variant="outline-primary"> {/* Add Hide Line button */}
           {lineVisible ? 'Hide Line' : 'Show Line'}
