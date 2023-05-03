@@ -11,7 +11,6 @@ import N2Charts from './N2Charts';
 import CreateChartButton from './CreateChartButton';
 import CreateChart from './CreateChart';
 import DeleteChartButton from './DeleteChartButton';
-import DeleteChart from './DeleteChart';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
