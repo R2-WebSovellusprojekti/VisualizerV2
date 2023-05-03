@@ -14,8 +14,8 @@ BEGIN
     VALUES (username, password);
 END;
 $BODY$;
--- ALTER PROCEDURE public.create_user(character varying, character varying)
---    OWNER TO postgres;
+ ALTER PROCEDURE public.create_user(character varying, character varying)
+    OWNER TO postgres;
 
 --
 CREATE OR REPLACE PROCEDURE public.delete_user(
@@ -27,7 +27,7 @@ BEGIN
     WHERE users.username = delete_user.username;
 END;
 $BODY$;
--- ALTER PROCEDURE public.delete_user(character varying)
---    OWNER TO postgres;
+ ALTER PROCEDURE public.delete_user(character varying)
+    OWNER TO postgres;
 
 SELECT * FROM users;
