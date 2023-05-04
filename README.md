@@ -17,7 +17,7 @@ Projektissa toteutettiin www-sivu ilmastomuutokseen liittyvän tiedon visualisoi
 ![erDiagram](https://user-images.githubusercontent.com/112494979/226402531-91ae8562-d370-4bb8-8386-ef670b6a5e57.PNG)
 =======
                                                                           
-                                                                          Tietokannan ER-Diagrammi
+## Luonnos sivun ulkonäöstä
 
 Jokaista visualisointia varten muodostetaan tietokantaan oma taulu. Lisäksi Muodostetaan taulu käyttätietojen rekisteröintiä varten. Tauluun tallennetaan käyttäjän suosikkinäkymän asetukset. 
 Visualisoinnit 1-3 kertovat lämpötiloista ja co2 pitoisuuksista ilmakehässä. V1 näyttää viivagraafin mitatuista lämpötilatiedoista 1850-luvulta nykypäivään sekä pohjoisen pallonpuoliskon paleoklimatologiseen tutkimukseen perustuvan lämpötilamallin viimeiseltä 2000 vuodelta.
@@ -29,7 +29,7 @@ V5 näyttää co2 päästöt toimialoittain ja esittää tiedot piirakkakaavion 
 ![versio2](https://user-images.githubusercontent.com/112494979/226401937-72f1c8c7-6f6e-40b9-b7f1-24c72d4d8661.PNG)
 =======
 
- Luonnos sivun ulkonäöstä
+## Luonnos sivun ulkonäöstä
 
 Sivulle tulee kolme erilaista näkymää. Ylimmässä näkymässä esitetään visulisoinnit 1-3, toisessa visualisoinnit 4-5 ja kolmenteen käyttäjä voi valita haluamansa visualisoinnit.  Sivusta tulee eri resoluutioille skaalautuva. Skaalautuvuus toteutetaan Bootstrap-kirjastoa käyttäen. 
 
