@@ -22,6 +22,15 @@
   overflow: visible;
   flex-wrap: nowrap;
 }
+.n4chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  margin: 0 auto;
+  overflow: visible;
+  flex-wrap: nowrap;
+}
 .chart-container {
   display: flex;
   justify-content: flex-start;

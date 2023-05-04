@@ -6,6 +6,8 @@ const V5Chart = () => {
   const [data, setData] = useState([]);
   const [chartData, setChartData] = useState(null);
   const [activeSector, setActiveSector] = useState(null);
+  const [activeSubSector, setActiveSubSector] = useState(null);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,12 +22,20 @@ const V5Chart = () => {
   }, []);
 
   useEffect(() => {
+    const keySelector = !activeSector
+      ? 'sector'
+      : !activeSubSector
+      ? 'sub_sector'
+      : 'sub_sector_det';
+  
     const sectorData = data
       .filter((item) => !activeSector || item.sector === activeSector)
+      .filter((item) => !activeSubSector || item.sub_sector === activeSubSector)
+      .filter((item) => item.sector !== null && (!activeSector || item.sub_sector !== null))
       .reduce((acc, item) => {
-        const key = activeSector ? item.sub_sector : item.sector;
+        const key = item[keySelector];
         const value = item.share;
-
+  
         if (acc.labels.includes(key)) {
           const index = acc.labels.indexOf(key);
           acc.datasets[0].data[index] += value;
@@ -33,7 +43,7 @@ const V5Chart = () => {
           acc.labels.push(key);
           acc.datasets[0].data.push(value);
         }
-
+  
         return acc;
       }, {
         labels: [],
@@ -41,31 +51,38 @@ const V5Chart = () => {
           {
             data: [],
             backgroundColor: [
-                '#FF6384',
-                '#36A2EB',
-                '#FFCE56',
-                '#4BC0C0',
-                '#9966FF',
-                '#FF9F40',
-                '#E7E9ED',
-                '#8ACF82',
-                '#FF7F50',
-                '#87CEFA',
+              '#FF6384',
+              '#36A2EB',
+              '#FFCE56',
+              '#4BC0C0',
+              '#9966FF',
+              '#FF9F40',
+              '#E7E9ED',
+              '#8ACF82',
+              '#FF7F50',
+              '#87CEFA',
             ],
           },
         ],
       });
-
+  
     setChartData(sectorData);
-  }, [data, activeSector]);
+  }, [data, activeSector, activeSubSector]);
 
   const handleClick = (elements, chart) => {
     if (!elements.length) return;
-
+  
     const index = elements[0].index;
     const label = chartData.labels[index];
-
-    setActiveSector(activeSector ? null : label);
+  
+    if (!activeSector) {
+      setActiveSector(label);
+    } else if (!activeSubSector) {
+      setActiveSubSector(label);
+    } else {
+      setActiveSubSector(null);
+      setActiveSector(null);
+    }
   };
 
   if (!chartData) {
@@ -73,19 +90,21 @@ const V5Chart = () => {
   }
 
   return (
-    <div>
-      <Doughnut
-        data={chartData}
-        onElementsClick={handleClick}
-        options={{
-          plugins: {
-            tooltip: {
-              enabled: false
-            }
-          },
-          onClick: handleClick,
-        }}
-      />
+    <div className="n4chart-container">
+      <div className="chart-column">
+        <Doughnut
+          data={chartData}
+          onElementsClick={handleClick}
+          options={{
+            plugins: {
+              tooltip: {
+                enabled: false
+              }
+            },
+            onClick: handleClick,
+          }}
+        />
+      </div>
     </div>
   );
 };
