@@ -145,15 +145,20 @@ const V2Chart = () => {
   return (
     <div className="n1chart-container">
       <div className="chart-column">
-        <div className="annual-toggle">
-          <Button
-            onClick={toggleDataset}
-            className="annual-toggle-btn"
-          >
-            {showAnnual ? 'Show Monthly' : 'Show Annual'}
-          </Button>
+      <figure>
+  <Line data={data} options={options} />
+  <figcaption style={{ color: 'white' }}>
+  The atmospheric CO2 concentration from 0 to 800,000 years ago with Mauna Loa measurements continuing from 1958 to present. You can find the data 
+    <a href="https://gml.noaa.gov/ccgg/trends/data.html" style={{color: 'white'}}> here and the description</a>
+    
+    <a href="https://gml.noaa.gov/ccgg/about/co2_measurements.html" style={{color: 'white'}}> here.</a>
+  </figcaption>
+</figure>
+        <div className="chart-controls">
+        <Button onClick={toggleLine} variant="outline-primary"> {/* Add Hide Line button */}
+          {lineVisible ? 'Hide Line' : 'Show Line'}
+        </Button>
         </div>
-        <Line data={showAnnual ? annualData : data} options={options} />
       </div>
     </div>
   );
