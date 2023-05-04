@@ -193,3 +193,39 @@ app.get('/api/v2monthly', (req, res) => {
     }
   });
 });
+
+app.get('/api/v2annual', (req, res) => {
+  pool.query('SELECT * FROM v2_annual', (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    } else {
+      console.log(results);
+      res.json(results);
+    }
+  });
+});
+
+app.get('/api/v3', (req, res) => {
+  pool.query('SELECT * FROM v3', (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    } else {
+      console.log(results);
+      res.json(results);
+    }
+  });
+});
+
+app.get('/api/v5', (req, res) => {
+  pool.query('SELECT * FROM v5', (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    } else {
+      console.log(results);
+      res.json(results);
+    }
+  });
+});

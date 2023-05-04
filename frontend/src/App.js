@@ -8,6 +8,8 @@ import React, { useState, useEffect } from 'react';
 import './Styles.css'
 import V1Chart from './V1Chart';
 import V2Chart from './V2Chart';
+import V3Chart from './V3Chart';
+import V5Chart from './V5Chart';
 import CreateChartButton from './CreateChartButton';
 import CreateChart from './CreateChart';
 
@@ -48,7 +50,7 @@ function App() {
             <img src={logo} className="App-logo" alt="logo"/>
             <h1 className='title' >R2 Visualizer Project</h1>
           </NavLink>
-
+  
           <ul>
             {isAuthenticated ? (
               <li>
@@ -70,15 +72,19 @@ function App() {
           <div className="chart-container">
             <V1Chart />
             <V2Chart />
+            <V3Chart />
           </div>
         </div>
         <div className="chart-box">
+          <div className="chart-container">
+            <V5Chart />
+          </div>
         </div>
         <div className="chart-box">
           {isNewChartCreated ? (
             <CreateChart />
           ) : (
-          <CreateChartButton onClick={handleCreateChartClick} />
+            <CreateChartButton onClick={handleCreateChartClick} />
           )}
         </div>
         <div className="footer">

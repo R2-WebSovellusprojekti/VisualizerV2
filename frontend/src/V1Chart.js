@@ -124,23 +124,8 @@ axios.defaults.baseURL = 'http://localhost:5000';
 const V1Chart = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [globalVisible, setGlobalVisible] = useState(true);
-  const [southernVisible, setSouthernVisible] = useState(true);
-  const [northernVisible, setNorthernVisible] = useState(true);
   const [annualData, setAnnualData] = useState(null);
   const [showAnnual, setShowAnnual] = useState(false);
-
-  const toggleGlobal = () => {
-    setGlobalVisible(!globalVisible);
-  };
-
-  const toggleSouthern = () => {
-    setSouthernVisible(!southernVisible);
-  };
-
-  const toggleNorthern = () => {
-    setNorthernVisible(!northernVisible);
-  };
 
   const toggleDataset = () => {
     setShowAnnual(!showAnnual);
@@ -163,7 +148,6 @@ const V1Chart = () => {
               borderColor: 'green',
               borderWidth: 1,
               fill: false,
-              hidden: !globalVisible,
             },
             {
               label: 'Southern',
@@ -171,7 +155,6 @@ const V1Chart = () => {
               borderColor: 'red',
               borderWidth: 1,
               fill: false,
-              hidden: !southernVisible,
             },
             {
               label: 'Northern',
@@ -179,7 +162,6 @@ const V1Chart = () => {
               borderColor: 'blue',
               borderWidth: 1,
               fill: false,
-              hidden: !northernVisible,
             },
           ],
         };
@@ -193,7 +175,7 @@ const V1Chart = () => {
       }
     };
     fetchData();
-  }, [globalVisible, southernVisible, northernVisible]);
+  }, []);
 
   useEffect(() => {
     const fetchAnnualData = async () => {
@@ -211,7 +193,6 @@ const V1Chart = () => {
               borderColor: 'green',
               borderWidth: 1,
               fill: false,
-              hidden: !globalVisible,
             },
             {
               label: 'Southern',
@@ -219,7 +200,6 @@ const V1Chart = () => {
               borderColor: 'red',
               borderWidth: 1,
               fill: false,
-              hidden: !southernVisible,
             },
             {
               label: 'Northern',
@@ -227,7 +207,6 @@ const V1Chart = () => {
               borderColor: 'blue',
               borderWidth: 1,
               fill: false,
-              hidden: !northernVisible,
             },
             {
               label: 'Reconstruction',
@@ -247,7 +226,7 @@ const V1Chart = () => {
       }
     };
     fetchAnnualData();
-  }, [globalVisible, southernVisible, northernVisible]);
+  }, []);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -275,21 +254,15 @@ console.log("ShowAnnual state:", showAnnual);
 return (
   <div className="n1chart-container">
     <div className="chart-column">
-      <Line data={showAnnual ? annualData : data} options={options} />
-      <div className="chart-controls">
-        <Button onClick={toggleGlobal} variant="outline-danger">
-          Toggle Global
-        </Button>
-        <Button onClick={toggleSouthern} variant="outline-primary">
-          Toggle Southern
-        </Button>
-        <Button onClick={toggleNorthern} variant="outline-success">
-          Toggle Northern
-        </Button>
-        <Button onClick={toggleDataset} variant="outline-info">
+      <div className="annual-toggle">
+        <Button
+          onClick={toggleDataset}
+          className="annual-toggle-btn" // Apply the new CSS class
+        >
           {showAnnual ? 'Show Monthly' : 'Show Annual'}
         </Button>
       </div>
+      <Line data={showAnnual ? annualData : data} options={options} />
     </div>
   </div>
 );
