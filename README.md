@@ -10,7 +10,7 @@ HTV76: Hannu Väliahde
 ergosha: Miikka Tyvelä
 --
 
-## Projektin GitHub-linkki: https://github.com/R2-WebSovellusprojekti/R2-WebSovellusprojekti
+### Projektin GitHub-linkki: https://github.com/R2-WebSovellusprojekti/R2-WebSovellusprojekti
 
 # Projektin tarkoitus
 
