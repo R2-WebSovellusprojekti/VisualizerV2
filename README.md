@@ -17,7 +17,7 @@ Projektissa toteutettiin www-sivu ilmastomuutokseen liittyvän tiedon visualisoi
 ![erDiagram](https://user-images.githubusercontent.com/112494979/226402531-91ae8562-d370-4bb8-8386-ef670b6a5e57.PNG)
                                                                           
                                                                           
-                                                                          #Tietokannan ER-Diagrammi
+                                                                          Tietokannan ER-Diagrammi
 
 Jokaista visualisointia varten muodostetaan tietokantaan oma taulu. Lisäksi Muodostetaan taulu käyttätietojen rekisteröintiä varten. Tauluun tallennetaan käyttäjän suosikkinäkymän asetukset. 
 Visualisoinnit 1-3 kertovat lämpötiloista ja co2 pitoisuuksista ilmakehässä. V1 näyttää viivagraafin mitatuista lämpötilatiedoista 1850-luvulta nykypäivään sekä pohjoisen pallonpuoliskon paleoklimatologiseen tutkimukseen perustuvan lämpötilamallin viimeiseltä 2000 vuodelta.
