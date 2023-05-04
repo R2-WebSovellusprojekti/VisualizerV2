@@ -16,9 +16,13 @@ function DeleteUserForm() {
   function handleUsernameChange(event) {
     setUsername(event.target.value);
   }
+  function handleUsernameFocus() {
+    setUsernameError('');
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
+    
 
     if (!localStorage.getItem('token') && !localStorage.getItem('username')) {
       alert('You must be signed in to delete a user!');

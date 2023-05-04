@@ -254,15 +254,15 @@ console.log("ShowAnnual state:", showAnnual);
 return (
   <div className="n1chart-container">
     <div className="chart-column">
-      <div className="annual-toggle">
-        <Button
-          onClick={toggleDataset}
-          className="annual-toggle-btn" // Apply the new CSS class
-        >
+      <figure style={{color: 'white'}}>
+        <Line data={showAnnual ? annualData : data} options={options} />
+        <figcaption>Temperature measurements for the Northern, Southern and Global hemispheres from 1850 to present day. You can find the data <a href="https://www.metoffice.gov.uk/hadobs/hadcrut5/" style={{color: 'white'}}>here</a>. Northern Hemisphere temperature reconstruction for the past 2,000 years, you can find the whole data and description <a href="https://www.nature.com/articles/nature03265" style={{color: 'white'}}>here.</a></figcaption>
+      </figure>
+      <div className="chart-controls">
+        <Button onClick={toggleDataset} variant="outline-info">
           {showAnnual ? 'Show Monthly' : 'Show Annual'}
         </Button>
       </div>
-      <Line data={showAnnual ? annualData : data} options={options} />
     </div>
   </div>
 );

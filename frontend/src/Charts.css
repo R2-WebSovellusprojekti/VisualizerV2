@@ -157,8 +157,6 @@ canvas {
         width: 100% !important;
         height: auto !important;
     }
-.annual-toggle-btn:hover {
-  background-color: transparent;
 }
 @media screen and (max-width: 666px) {
   .chart-container {

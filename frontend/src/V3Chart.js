@@ -94,6 +94,12 @@ const V3Chart = () => {
     <div className="n3chart-container">
       <div className="chart-column">
         <Line data={data} options={options} />
+        <figure>
+        <figcaption style={{ color: 'white' }}>
+        The evolution of global temperature over the past two million years. The graph uses kiloyears. It displays CO2 parts per million and surface temperature change.
+        The dataset can be found at <a href='http://carolynsnyder.com/papers/Snyder_Data_Figures.zip' style={{color: 'white'}}> here</a>, and the description of the research can be found at <a href='https://climate.fas.harvard.edu/files/climate/files/snyder_2016.pdf' style={{color: 'white'}}> here</a>.
+  </figcaption>
+</figure>
       </div>
     </div>
   );
