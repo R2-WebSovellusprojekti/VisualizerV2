@@ -26,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25vw;
+  width: 30vw;
   margin: 0 auto;
   overflow: visible;
   flex-wrap: nowrap;
@@ -136,13 +136,6 @@ canvas {
 
 .annual-toggle-btn:hover {
   background-color: transparent;
-}
-@media screen and (min-width: 2300px) {
-    canvas {
-        min-width: 750px;
-        width: 100% !important;
-        height: auto !important;
-    }
 }
 @media screen and (max-width: 666px) {
   .chart-container {
