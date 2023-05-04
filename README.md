@@ -29,3 +29,7 @@ V5 näyttää co2 päästöt toimialoittain ja esittää tiedot piirakkakaavion 
 ![versio2](https://user-images.githubusercontent.com/112494979/226401937-72f1c8c7-6f6e-40b9-b7f1-24c72d4d8661.PNG)
 =======
 
+ Luonnos sivun ulkonäöstä
+
+Sivulle tulee kolme erilaista näkymää. Ylimmässä näkymässä esitetään visulisoinnit 1-3, toisessa visualisoinnit 4-5 ja kolmenteen käyttäjä voi valita haluamansa visualisoinnit.  Sivusta tulee eri resoluutioille skaalautuva. Skaalautuvuus toteutetaan Bootstrap-kirjastoa käyttäen. 
+
