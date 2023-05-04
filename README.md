@@ -1,10 +1,14 @@
 # Web-ohjelmoinnin sovellusprojekti – Ryhmä 2
 
 Ryhmän jäsenet
-Niko Kolehmainen	Dibble117
-Samuli Kuusisto	siLtzi
-Miikka Tyvelä	ergosha
-Hannu Väliahde	HTV76
+siLtzi: Samuli Kuusisto
+--
+Dibble117: Niko Kolehmainen
+--
+HTV76: Hannu Väliahde
+--
+ergosha: Miikka Tyvelä
+--
 
 Projektin GitHub-linkki: https://github.com/R2-WebSovellusprojekti/R2-WebSovellusprojekti
 
