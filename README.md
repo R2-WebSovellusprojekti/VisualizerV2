@@ -44,4 +44,13 @@ Testeissä luodaan uusi käyttäjä tietokantaan, kirjaudutaan sovellukseen ja l
 
 ### Käyttöohjeet testaukseen Visual Studio Codessa:
 ### Frontend:
+Avaa terminaali ’frontend’-kansiosta tai siirry terminaalin sisällä kansioon.
+Suorita komento ’npm test’. Jos testit eivät käynnisty suoraan, suorita kaikki painamalla ’a’. Terminaaliin ilmestyy hyväksytyt sekä mahdolliset hylätyt testit.
+Jos haluat tarkastella mitä testiohjelmat tarkalleen testaavat, paina ’w’ jonka jälkeen ’p’ ja kirjoita hakusanaksi haluamasi testitiedosto: App, DeleteUser, Signin tai Signup. Vain yksittäin suoritetut testit näyttävät testien sisällön.
+Testit voi lopettaa painamalla ’w’ jonka jälkeen ’q’.
+
+### Backend:
+Avaa terminaali ’backend’-kansiosta tai siirry terminaalin sisällä kansioon.
+Suorita komento ’npm test’. Terminaaliin ilmestyy hyväksytyt sekä mahdolliset hylätyt testit. Kaikki kuusi (6) testiä näkyvät myös terminaalissa.
+Testit voi lopettaa komennolla ’Ctrl + c’.
 
