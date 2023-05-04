@@ -15,7 +15,7 @@ Projektissa toteutettiin www-sivu ilmastomuutokseen liittyvän tiedon visualisoi
 
 
 ![erDiagram](https://user-images.githubusercontent.com/112494979/226402531-91ae8562-d370-4bb8-8386-ef670b6a5e57.PNG)
-                                                                          
+=======
                                                                           
                                                                           Tietokannan ER-Diagrammi
 
