@@ -31,5 +31,17 @@ V5 näyttää co2 päästöt toimialoittain ja esittää tiedot piirakkakaavion 
 
 ## Luonnos sivun ulkonäöstä
 
-Sivulle tulee kolme erilaista näkymää. Ylimmässä näkymässä esitetään visulisoinnit 1-3, toisessa visualisoinnit 4-5 ja kolmenteen käyttäjä voi valita haluamansa visualisoinnit.  Sivusta tulee eri resoluutioille skaalautuva. Skaalautuvuus toteutetaan Bootstrap-kirjastoa käyttäen. 
+Sivulle tulee kolme erilaista näkymää. Ylimmässä näkymässä esitetään visulisoinnit 1-3, toisessa visualisoinnit 4-5 ja kolmenteen käyttäjä voi valita haluamansa visualisoinnit.  Sivusta tulee eri resoluutioille skaalautuva. Skaalautuvuus toteutetaan Bootstrap-kirjastoa käyttäen.
+
+## Sovelluskoodin testaus
+
+Sovelluksen koodin toiminnan testauksessa käytettiin pelkän käyttäjätestauksen lisäksi omia testausohjelmia, jotka luotiin ja suoritettiin Visual Studio Codessa. Testeissä käytettiin React-sovellusten suosimaa Jest-testauskehystä. 
+Verkkosovelluksen käyttöliittymän (frontend) testitiedostot luotiin testaamaan nappien, lomakkeiden ja komponenttien renderöinti ja toiminta eri käyttötilanteissa.
+Esimerkki käyttötilanteesta: Käyttäjä kirjautuu sisään ja näkyviin tulee profiilinappi jossa on käyttäjän nimi. Testiohjelma olettaa profiilinapin renderöityvän kun käyttäjä kirjautuu sisään ja testi on onnistunut kun testikoodi löytää tarvitsemansa oletuksen. Kun käyttäjä kirjautuu ulos sovelluksesta, profiilinappi ei ole enää näkyvissä. Testiohjelma olettaa että profiilinappi ei ole renderöity, ja testi on onnistunut jos profiilinappia ei löydy.
+Frontendin eri toimintaosista tehtiin neljä (4) testitiedostoa joissa on yhteensä kaksikymmentäkolme (23) eri testiä.
+Verkkosovelluksen taustalla toimiva osa (backend) vastaa sovelluksen logiikasta, tietokantakyselyistä ja palvelinpuolella tapahtuvista toiminnoista. Backendin testikoodit käsittävät rajapintojen toimintoja eri tilanteissa ja ne luotiin yhteen (1) tiedostoon jossa testejä on yhteensä kuusi (6) kappaletta.
+Testeissä luodaan uusi käyttäjä tietokantaan, kirjaudutaan sovellukseen ja lopuksi poistetaan käyttäjä tietokannasta. Lisäksi testataan myös käyttötoimintojen virhetilanteet.
+
+### Käyttöohjeet testaukseen Visual Studio Codessa:
+### Frontend:
 
