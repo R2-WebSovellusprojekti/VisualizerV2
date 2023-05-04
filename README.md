@@ -3,9 +3,10 @@
 ## Projektin GitHub-linkki: https://github.com/R2-WebSovellusprojekti/R2-WebSovellusprojekti
 
 Ryhmän jäsenet
-siLtzi: Samuli Kuusisto
+
+### siLtzi: Samuli Kuusisto
 --
-Dibble117: Niko Kolehmainen
+### Dibble117: Niko Kolehmainen
 --
 HTV76: Hannu Väliahde
 --
