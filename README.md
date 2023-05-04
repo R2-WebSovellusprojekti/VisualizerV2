@@ -5,7 +5,6 @@
 Ryhmän jäsenet
 
 ### siLtzi: Samuli Kuusisto
---
 ### Dibble117: Niko Kolehmainen
 --
 HTV76: Hannu Väliahde
