@@ -74,12 +74,10 @@ const V2Chart = () => {
       <figure>
   <Line data={data} options={options} />
   <figcaption style={{ color: 'white' }}>
-    Atmospheric CO2 concentrations from Mauna Loa measurements starting 1958.
-    <br />
-  
-    <a href="https://gml.noaa.gov/ccgg/trends/data.html" style={{color: 'white'}}> Data source</a>
-    <br />
-    <a href="https://gml.noaa.gov/ccgg/about/co2_measurements.html" style={{color: 'white'}}> Description</a>
+  The atmospheric CO2 concentration from 0 to 800,000 years ago with Mauna Loa measurements continuing from 1958 to present. You can find the data 
+    <a href="https://gml.noaa.gov/ccgg/trends/data.html" style={{color: 'white'}}> here and the description</a>
+    
+    <a href="https://gml.noaa.gov/ccgg/about/co2_measurements.html" style={{color: 'white'}}> here.</a>
   </figcaption>
 </figure>
         <div className="chart-controls">
