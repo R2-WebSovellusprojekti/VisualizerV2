@@ -92,13 +92,6 @@ const V5Chart = () => {
   return (
     <div className="n4chart-container">
       <div className="chart-column">
-      <figure>
-        <figcaption style={{ color: 'white' }}>
-        This doughnut chart shows CO2 emission percentages by sectors. By clicking certain sector you can see their subsectors CO2 emissions.
-        The dataset can be found at <a href='https://ourworldindata.org/uploads/2020/09/Global-GHG-Emissions-by-sector-based-on-WRI2020.xlsx
-' style={{color: 'white'}}> here</a>, and the description can be found <a href='https://ourworldindata.org/emissions-by-sector#co2-emissions-by-sector' style={{color: 'white'}}> here</a>.
-  </figcaption>
-  </figure>
         <Doughnut
           data={chartData}
           onElementsClick={handleClick}
