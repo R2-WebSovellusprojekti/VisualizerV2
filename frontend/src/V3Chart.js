@@ -104,5 +104,4 @@ const V3Chart = () => {
     </div>
   );
 };
-
 export default V3Chart;

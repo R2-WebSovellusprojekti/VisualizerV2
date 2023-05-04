@@ -145,7 +145,6 @@ const V2Chart = () => {
   return (
     <div className="n1chart-container">
       <div className="chart-column">
-        
         <div className="annual-toggle">
           <Button
             onClick={toggleDataset}
