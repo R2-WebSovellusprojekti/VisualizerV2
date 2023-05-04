@@ -17,10 +17,6 @@ function DeleteUserForm() {
     setUsername(event.target.value);
   }
 
-  function handleUsernameFocus() {
-    setErrorMessage('');
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
 

@@ -21,17 +21,15 @@ app.listen(SERVER_PORT, () => {
 //-----------------------------------------DATABASE----------------------------------------------
 // Create a connection pool for the PostgreSQL database
 const pool = new Pool({
- /*connectionString: 'postgres://r2:So89P9cm37yaR22nqNjyktWJLSB4Ywo7@dpg-cgi5v4seoogvqrjl6amg-a.frankfurt-postgres.render.com:5432/r2db',
-  ssl: {
-    rejectUnauthorized: false
-  }*/
-
   user: 'postgres',
   host: 'localhost',
   database: 'r2db',
   password: 'password',
   port: 5432, // The default PostgreSQL port
 });
+pool.connect()
+  .then(() => console.log('Connected to PostgreSQL database'))
+  .catch((err) => console.error('Error connecting to PostgreSQL database', err));
 
 //-----------------------------------------SIGN UP-----------------------------------------------
 // Define the /api/signup endpoint
@@ -107,15 +105,15 @@ app.post('/api/signin', async (req, res) => {
       }
 
       // If the username and password are correct, create a JWT token
-      const expiresInSec = 6 * 60; // 30 minutes
+      const expiresInSec = 30 * 60; // 30 minutes
       const token = jwt.sign({ username }, secretKey, { expiresIn: expiresInSec });
-      console.log('Token expiration time:', expiresInSec);
+      console.log('Token expiration time:', (expiresInSec / 60), 'minutes');
 
 
       // Return a 200 OK status with the token and user data
       console.log(`User ${username} signed in`);
       res.status(200).json({ message: 'User signed in', user: { username }, token });
-      console.log("Token: ", token);
+//      console.log("Token: ", token);
 /*
       //store token in json file and send it to frontend
       const fs = require('fs');
@@ -229,3 +227,22 @@ app.get('/api/v5', (req, res) => {
     }
   });
 });
+//-----------------------------------------GET DATA------------------------------------------------
+// Define the /api/hcmonthly endpoint
+app.get('/api/hcmonthly', async (req, res) => {
+  try {
+    // Retrieve the data from the database
+    const { rows } = await pool.query('SELECT * FROM hc_monthly');
+    
+    // Convert the data into the format expected by Chart.js
+    const chartData = rows.map(row => ({ x: row.label, y: row.value }));
+
+    // Send the data to the browser
+    res.json(chartData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error retrieving data from database');
+  }
+});
+
+    module.exports = app;

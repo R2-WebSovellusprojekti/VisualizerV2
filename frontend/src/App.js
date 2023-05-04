@@ -12,6 +12,7 @@ import V3Chart from './V3Chart';
 import V5Chart from './V5Chart';
 import CreateChartButton from './CreateChartButton';
 import CreateChart from './CreateChart';
+import DeleteChartButton from './DeleteChartButton';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -40,6 +41,10 @@ function App() {
 
   const handleCreateChartClick = () => {
     setIsNewChartCreated(true);
+  };
+
+  const handleDeleteChartClick = () => {
+    setIsNewChartCreated(false);
   };
 
   return (
@@ -82,7 +87,10 @@ function App() {
         </div>
         <div className="chart-box">
           {isNewChartCreated ? (
+            <>
             <CreateChart />
+            <DeleteChartButton onClick={handleDeleteChartClick} />
+            </>
           ) : (
             <CreateChartButton onClick={handleCreateChartClick} />
           )}
