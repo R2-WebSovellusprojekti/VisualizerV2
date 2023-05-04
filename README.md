@@ -8,14 +8,14 @@ Hannu Väliahde	HTV76
 
 Projektin GitHub-linkki: https://github.com/R2-WebSovellusprojekti/R2-WebSovellusprojekti
 
-Projektin tarkoitus
+# Projektin tarkoitus
 
 Projektissa toteutettiin www-sivu ilmastomuutokseen liittyvän tiedon visualisointia varten. Sivulle haetaan ilmastomuutokseen liittyvää dataa useasta erillisestä julkisesta lähteestä. Datasta muodostetaan PostgreSQL-tietokanta, joka ladattiin Render-palvelulle. Sivulle toteutettiin erilaisia tietokannan dataa käyttäviä visualisointeja. Sivulla vierailija voi muuttaa visualisointien ulkonäköä ja tallentaa haluamansa näkymän. Ryhmämme toteutti palvelun käyttäen NodeJs-teknologiaa ja Reactia. Pyrkimyksenä on, että jokainen ryhmän jäsen toteuttaa jonkin visualisoinneista fullstack-kehittäjänä.
 
 
 ![erDiagram](https://user-images.githubusercontent.com/112494979/226402531-91ae8562-d370-4bb8-8386-ef670b6a5e57.PNG)
                                                                           
-                                                                          Tietokannan ER-Diagrammi
+                                                                          #Tietokannan ER-Diagrammi
 
 Jokaista visualisointia varten muodostetaan tietokantaan oma taulu. Lisäksi Muodostetaan taulu käyttätietojen rekisteröintiä varten. Tauluun tallennetaan käyttäjän suosikkinäkymän asetukset. 
 Visualisoinnit 1-3 kertovat lämpötiloista ja co2 pitoisuuksista ilmakehässä. V1 näyttää viivagraafin mitatuista lämpötilatiedoista 1850-luvulta nykypäivään sekä pohjoisen pallonpuoliskon paleoklimatologiseen tutkimukseen perustuvan lämpötilamallin viimeiseltä 2000 vuodelta.
