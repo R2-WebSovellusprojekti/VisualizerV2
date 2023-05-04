@@ -1,6 +1,6 @@
 # Web-ohjelmoinnin sovellusprojekti – Ryhmä 2
 
-### Projektin GitHub-linkki: https://github.com/R2-WebSovellusprojekti/R2-WebSovellusprojekti
+### Projektin GitHub-linkki: https://github.com/R2-WebSovellusprojekti/VisualizerV2.com
 ### Stoplight-linkki: https://r2-projekti.stoplight.io/docs/r2-websovellusprojekti/branches/main/v5wqfg22d9gtm-r2-web-sovellus-api
 
 ## Ryhmän jäsenet:
