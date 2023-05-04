@@ -6,8 +6,10 @@ import SignupButton from './SignupButton';
 import ProfileButton from './ProfileButton';
 import React, { useState, useEffect } from 'react';
 import './Styles.css'
-import N1Charts from './N1Charts';
-import N2Charts from './N2Charts';
+import V1Chart from './V1Chart';
+import V2Chart from './V2Chart';
+import V3Chart from './V3Chart';
+import V5Chart from './V5Chart';
 import CreateChartButton from './CreateChartButton';
 import CreateChart from './CreateChart';
 import DeleteChartButton from './DeleteChartButton';
@@ -50,10 +52,10 @@ function App() {
       <div className="App">
         <nav className="navbar">
           <NavLink to="/" className="logo-container">
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src={logo} className="App-logo" alt="logo"/>
             <h1 className='title' >R2 Visualizer Project</h1>
           </NavLink>
-
+  
           <ul>
             {isAuthenticated ? (
               <li>
@@ -72,10 +74,16 @@ function App() {
           </ul>
         </nav>
         <div className="chart-box">
-            <N1Charts />
+          <div className="chart-container">
+            <V1Chart />
+            <V2Chart />
+            <V3Chart />
+          </div>
         </div>
         <div className="chart-box">
-          <N2Charts />
+          <div className="chart-container">
+            <V5Chart />
+          </div>
         </div>
         <div className="chart-box">
           {isNewChartCreated ? (
@@ -84,7 +92,7 @@ function App() {
             <DeleteChartButton onClick={handleDeleteChartClick} />
             </>
           ) : (
-          <CreateChartButton onClick={handleCreateChartClick} />
+            <CreateChartButton onClick={handleCreateChartClick} />
           )}
         </div>
         <div className="footer">

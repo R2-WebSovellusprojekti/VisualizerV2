@@ -1,72 +1,99 @@
 .n1chart-container {
-    display: flex;
-    justify-content: flex-start;
-    border-radius: 10px;
-    width: calc(100vw);
-    margin: 0 auto;
-    overflow: auto;
-    flex-wrap: nowrap;
-}
-.n2chart-container {
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
-    width: 100%;
-    margin: 0 auto;
-    overflow: auto;
-    flex-wrap: nowrap;
+  display: flex;
+  justify-content: flex-start;
+  width: 100vw;
+  margin: 0 auto;
+  overflow: visible;
+  flex-wrap: nowrap;
 }
 .n3chart-container {
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
-    width: 100%;
-    margin: 0 auto;
-    overflow: auto;
-    flex-wrap: nowrap;
+  display: flex;
+  justify-content: flex-start;
+  width: 100vw;
+  margin: 0 auto;
+  overflow: visible;
+  flex-wrap: nowrap;
+}
+.n5chart-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 30vw;
+  margin: 0 auto;
+  overflow: visible;
+  flex-wrap: nowrap;
+}
+.n4chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  margin: 0 auto;
+  overflow: visible;
+  flex-wrap: nowrap;
+}
+.chart-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 95vw;
+  overflow: auto;
+  flex-wrap: nowrap;
+}
+.create-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 95vw;
+  height: auto;
+  margin: 0 auto;
+  overflow: auto;
 }
 .chart-column {
-    margin-bottom: 20px;
-    flex-direction: row;
-    border: #000000 solid 1px;
-    border-radius: 5px;
-    margin: 1rem;
-    
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border: #000000 solid 1px;
+  border-radius: 5px;
+  margin: 1rem;
+  width: 100%;
+  max-width: 95vw;
+  min-width: 600px;
 }
 .chart-box {
-
-    border: 1px solid #000000;
-    border-radius: 5px;
-    padding: 5px;
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: row;
-    max-width: 95vw;
-    max-height: 95vh;
-    box-shadow: 0px 0px 3px rgb(255, 255, 255);
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-    min-width: 95vw;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  max-width: 95vw;
+  max-height: 95vh;
+  box-shadow: 0px 0px 3px rgb(255, 255, 255);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: auto;
 }
 canvas {
+  font-family: 'Saira', 'sans-serif';
+  width: 100% !important;
+  height: auto !important;
+}
+.create-chart-canvas {
     font-family: 'Saira', 'sans-serif';
-    overflow: visible;
-    min-width: 550px;
     width: 100% !important;
     height: auto !important;
-
-}
+  }
 
 /*Buttons*/
-.line-button {
+.create-chart-button {
     margin: 0.5rem;
     border-radius: 5px;
     border: 1px solid #000000;
-    background-color: #252525;
+    background-color: #252525; 
     color: #ffffff;
     text-shadow: #ffffff 0px 0px 1px;
     font-family: 'Saira', 'sans-serif';
@@ -78,12 +105,18 @@ canvas {
     outline: none;
     box-shadow: 0px 0px 3px rgb(255, 255, 255);
 }
-.line-button:hover {
+.create-chart-button:hover {
     background-color: #353535;
     color: #ffffff;
     text-shadow: #ffffff 0px 0px 1px;
     box-shadow: 0px 0px 3px rgb(255, 255, 255);
 }
+.annual-toggle {
+  position: relative;
+  top: 2%;
+  right: 37%;
+  z-index: 1000;
+  
 .create-chart-button {
     margin: 0.5rem;
     border-radius: 5px;
@@ -125,20 +158,34 @@ canvas {
         height: auto !important;
     }
 }
-@media screen and (max-width: 601px) {
-    canvas {
-        max-width: 450px;
-        height: auto !important;
-    }
+.annual-toggle-btn {
+  font-family: 'Saira', sans-serif;
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  padding: 0 !important;
 }
-@media screen and (max-width: 1300px) {
-    .n2chart-container {
-        display: flex;
-        justify-content: flex-start;
-        border-radius: 10px;
-        width: 100%;
-        margin: 0 auto;
-        overflow: auto;
-        flex-wrap: nowrap;
-    }
+
+.annual-toggle-btn:hover {
+  background-color: transparent;
+}
+@media screen and (max-width: 666px) {
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 95vw;
+    overflow: auto;
+    flex-wrap: nowrap;
+  }
 }
