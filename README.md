@@ -9,6 +9,7 @@
 ### HTV76: Hannu Väliahde
 ### ergosha: Miikka Tyvelä
 
+--
 # Projektin tarkoitus
 
 Projektissa toteutettiin www-sivu ilmastomuutokseen liittyvän tiedon visualisointia varten. Sivulle haetaan ilmastomuutokseen liittyvää dataa useasta erillisestä julkisesta lähteestä. Datasta muodostetaan PostgreSQL-tietokanta, joka ladattiin Render-palvelulle. Sivulle toteutettiin erilaisia tietokannan dataa käyttäviä visualisointeja. Sivulla vierailija voi muuttaa visualisointien ulkonäköä ja tallentaa haluamansa näkymän. Ryhmämme toteutti palvelun käyttäen NodeJs-teknologiaa ja Reactia. Pyrkimyksenä on, että jokainen ryhmän jäsen toteuttaa jonkin visualisoinneista fullstack-kehittäjänä.
